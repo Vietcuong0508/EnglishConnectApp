@@ -1,7 +1,13 @@
 import 'dart:math';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:english_connect/core/core.dart';
+import 'package:english_connect/models/model.dart';
+import 'package:english_connect/ui/ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_tts/flutter_tts.dart';
+import 'package:provider/provider.dart';
+import 'package:confetti/confetti.dart';
 
 class GameScreen extends StatefulWidget {
   const GameScreen({super.key});
@@ -12,17 +18,32 @@ class GameScreen extends StatefulWidget {
 
 class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   // Danh sách các từ cho nhiều level
-  final List<String> words = [
-    "HELLO",
-    "WORLD",
-    "FLUTTER",
-    "MOBILE",
-    "CODING",
-    "GAME",
-    "LEVEL",
-    "SMART",
-    "BRAIN",
-    "PUZZLE",
+  final List<WordModel> words = [
+    WordModel(word: "apple", pronunciation: "æpl", meaning: "Quả táo"),
+    WordModel(word: "banana", pronunciation: "bəˈnænə", meaning: "Quả chuối"),
+    WordModel(word: "orange", pronunciation: "ˈɔrɪndʒ", meaning: "Quả cam"),
+    WordModel(word: "grape", pronunciation: "ɡreɪp", meaning: "Quả nho"),
+    WordModel(
+      word: "watermelon",
+      pronunciation: "ˈwɔːtərˌmelən",
+      meaning: "Quả dưa hấu",
+    ),
+    WordModel(
+      word: "strawberry",
+      pronunciation: "ˈstrɔːberi",
+      meaning: "Quả dâu tây",
+    ),
+    WordModel(word: "kiwi", pronunciation: "ˈkiːwi", meaning: "Quả kiwi"),
+    WordModel(word: "peach", pronunciation: "piːtʃ", meaning: "Quả đào"),
+    WordModel(word: "mango", pronunciation: "ˈmæŋɡoʊ", meaning: "Quả xoài"),
+    WordModel(word: "pineapple", pronunciation: "ˈpaɪnæpl", meaning: "Quả dứa"),
+    WordModel(
+      word: "blueberry",
+      pronunciation: "ˈbluːberi",
+      meaning: "Quả việt quất",
+    ),
+    WordModel(word: "cherry", pronunciation: "ˈtʃeri", meaning: "Quả anh đào"),
+    WordModel(word: "pear", pronunciation: "per", meaning: "Quả lê"),
   ];
 
   int currentLevel = 0;
@@ -40,16 +61,23 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   late AnimationController _shakeController;
   late Animation<double> _celebrationAnimation;
   late Animation<double> _shakeAnimation;
+  late ConfettiController _leftController;
+  late ConfettiController _rightController;
+  late FlutterTts tts = FlutterTts();
+  late AudioPlayer audioPlayer = AudioPlayer();
 
   @override
   void initState() {
     super.initState();
     _initializeLevel();
     _setupAnimations();
+
+    _leftController = ConfettiController(duration: const Duration(seconds: 2));
+    _rightController = ConfettiController(duration: const Duration(seconds: 2));
   }
 
   void _initializeLevel() {
-    correctWord = words[currentLevel];
+    correctWord = words[currentLevel].word;
     letters = correctWord.split('')..shuffle();
     keyMap.clear();
     for (var i = 0; i < letters.length; i++) {
@@ -81,66 +109,80 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   void dispose() {
     _celebrationController.dispose();
     _shakeController.dispose();
+    _leftController.dispose();
+    _rightController.dispose();
     super.dispose();
   }
 
-  void _playSuccessSound() {
+  void _playSuccessSound() async {
+    // Phát âm thanh thành công
+    await audioPlayer.setSource(AssetSource('sounds/correct.mp3'));
+    await audioPlayer.resume();
     HapticFeedback.lightImpact();
     // Rung nhẹ khi thành công
   }
 
-  void _playErrorSound() {
+  void _playErrorSound() async {
+    // Phát âm thanh lỗi
+    await audioPlayer.setSource(AssetSource('sounds/wrong.mp3'));
+    await audioPlayer.resume();
     HapticFeedback.heavyImpact();
     // Rung mạnh khi sai
   }
 
   void _showSuccessPopup(String result) {
+    // Bắt đầu pháo hoa bên trái
+    _leftController.play();
+    // Bắt đầu pháo hoa bên phải
+    _rightController.play();
     showDialog(
       context: context,
       barrierDismissible: false,
       builder:
-          (_) => AlertDialog(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            title: const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.celebration, color: Colors.orange, size: 30),
-                SizedBox(width: 10),
-                Text("Xuất sắc!", style: TextStyle(color: Colors.green)),
-              ],
-            ),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  "Bạn đã tìm đúng từ: $result",
-                  textAlign: TextAlign.center,
+          (_) => Stack(
+            children: [
+              CustomPopup(
+                result: result,
+                titleText: Strings.excellent,
+                // icon: Icons.celebration,
+                // iconColor: Colors.green,
+                contentText: "${Strings.theExactWord}: $result",
+                descriptionText:
+                    "${Strings.pronounce}: ${words[currentLevel].pronunciation}",
+                currentLevel: currentLevel,
+                totalLevels: words.length,
+                onBtnLeft: _nextLevel,
+                onBtnRight: _resetCurrentLevel,
+                textBtnleft:
+                    currentLevel < words.length - 1 ? Strings.nextLevel : null,
+                textBtnRight: Strings.tryAgain,
+              ),
+              Align(
+                alignment: Alignment.topLeft,
+                child: ConfettiWidget(
+                  confettiController: _leftController,
+                  blastDirection: 0, // bắn sang phải
+                  emissionFrequency: 0.05,
+                  numberOfParticles: 20,
+                  blastDirectionality: BlastDirectionality.directional,
+                  maxBlastForce: 20,
+                  minBlastForce: 5,
+                  gravity: 0.3,
                 ),
-                const SizedBox(height: 10),
-                Text(
-                  "Level ${currentLevel + 1} hoàn thành!",
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ],
-            ),
-            actions: [
-              if (currentLevel < words.length - 1)
-                TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                    _nextLevel();
-                  },
-                  child: const Text("Level tiếp theo"),
-                ),
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  _resetCurrentLevel();
-                },
-                child: Text(
-                  currentLevel < words.length - 1 ? "Chơi lại" : "Chơi từ đầu",
+              ),
+
+              // Pháo hoa bên phải
+              Align(
+                alignment: Alignment.topRight,
+                child: ConfettiWidget(
+                  confettiController: _rightController,
+                  blastDirection: 3.14, // bắn sang trái (PI radian)
+                  emissionFrequency: 0.05,
+                  numberOfParticles: 20,
+                  blastDirectionality: BlastDirectionality.directional,
+                  maxBlastForce: 20,
+                  minBlastForce: 5,
+                  gravity: 0.3,
                 ),
               ),
             ],
@@ -152,31 +194,39 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
     showDialog(
       context: context,
       builder:
-          (_) => AlertDialog(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            title: const Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.close, color: Colors.red, size: 30),
-                SizedBox(width: 10),
-                Text("Thử lại!", style: TextStyle(color: Colors.red)),
-              ],
-            ),
-            content: Text(
-              "Bạn đã chọn: $result\nHãy thử lại!",
-              textAlign: TextAlign.center,
-            ),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  _resetCurrentLevel();
-                },
-                child: const Text("Thử lại"),
-              ),
-            ],
+          (_) => CustomPopup(
+            titleText: "Thử lại !",
+            titleColor: Colors.red,
+            icon: Icons.close_rounded,
+            iconColor: Colors.red,
+            contentText: "${Strings.yourChoice}: $result",
+            result: result,
+            currentLevel: currentLevel,
+            totalLevels: words.length,
+            onBtnRight: _resetCurrentLevel,
+            textBtnRight: Strings.tryAgain,
+          ),
+    );
+  }
+
+  void _showSuggestPopup(String result) {
+    showDialog(
+      context: context,
+      builder:
+          (_) => CustomPopup(
+            titleText: Strings.suggest,
+            contentText: Strings.pronounce,
+            contentIcon: Icons.volume_up_rounded,
+            result: result,
+            currentLevel: currentLevel,
+            totalLevels: words.length,
+            onBtnRight: () {},
+            onContentIcon: () async {
+              tts.setLanguage('en-US');
+              tts.setPitch(1.0);
+              tts.speak(words[currentLevel].word);
+            },
+            textBtnRight: Strings.close,
           ),
     );
   }
@@ -201,6 +251,7 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
   List<Widget> _buildLetterCircle(Size screenSize) {
     final double radius = min(screenSize.width, screenSize.height) * 0.25;
     final center = Offset(screenSize.width / 2, (screenSize.height - 100) / 2);
+    final themeColor = context.watch<ThemeManager>().currentTheme;
     final circleSize = 60.0;
 
     final startAngle = -pi / 2;
@@ -243,8 +294,8 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                     decoration: BoxDecoration(
                       color:
                           selectedIndexes.contains(i)
-                              ? Colors.blue[600]
-                              : Colors.blue,
+                              ? themeColor.buttonColor
+                              : themeColor.buttonColor.withOpacity(0.7),
                       shape: BoxShape.circle,
                       boxShadow: [
                         BoxShadow(
@@ -256,11 +307,11 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
                       ],
                     ),
                     child: Text(
-                      letters[i],
-                      style: const TextStyle(
+                      letters[i].toUpperCase(),
+                      style: TextStyle(
                         fontSize: 28,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: themeColor.textColor,
                       ),
                     ),
                   ),
@@ -275,188 +326,271 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    String result = selectedIndexes.map((i) => letters[i]).join();
     final screenSize = MediaQuery.of(context).size;
+    final themeColor = context.watch<ThemeManager>().currentTheme;
+    final GlobalKey progressBarKey = GlobalKey();
 
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text("${Strings.level} ${currentLevel + 1}"),
-        backgroundColor: Colors.blue[100],
-        elevation: 0,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.refresh),
-            onPressed: _resetCurrentLevel,
-          ),
-          IconButton(
-            icon: const Icon(Icons.skip_next),
-            onPressed: currentLevel < words.length - 1 ? _nextLevel : null,
-          ),
-        ],
-      ),
-      body: Container(
-        width: screenSize.width,
-        height: screenSize.height,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Colors.blue[50]!, Colors.blue[100]!],
-          ),
+    bool isInProgressBarArea(Offset position) {
+      final box =
+          progressBarKey.currentContext?.findRenderObject() as RenderBox?;
+      if (box != null) {
+        final barPosition = box.localToGlobal(Offset.zero);
+        final barSize = box.size;
+        final barRect = barPosition & barSize;
+        return barRect.contains(position);
+      }
+      return false;
+    }
+
+    return Stack(
+      children: [
+        Container(
+          decoration: BoxDecoration(gradient: themeColor.backgroundGradient),
         ),
-        child: Listener(
-          onPointerDown: (details) {
-            setState(() {
-              points.clear();
-              selectedIndexes.clear();
-              currentDragPosition = null;
-            });
-          },
-          onPointerMove: (details) {
-            // Sử dụng localPosition thay vì globalPosition
-            final localPosition = details.localPosition;
-
-            for (int i = 0; i < letters.length; i++) {
-              final key = keyMap[i]!;
-              final box = key.currentContext?.findRenderObject() as RenderBox?;
-              if (box != null) {
-                final position = box.localToGlobal(Offset.zero);
-                final size = box.size;
-                final rect = position & size;
-
-                if (rect.contains(details.position) &&
-                    !selectedIndexes.contains(i)) {
-                  // Tính toán vị trí trung tâm của chữ cái
-                  final screenSize = MediaQuery.of(context).size;
-                  final double radius =
-                      min(screenSize.width, screenSize.height) * 0.25;
-                  final center = Offset(
-                    screenSize.width / 2,
-                    (screenSize.height - 100) / 2,
-                  );
-
-                  final startAngle = -pi / 2;
-                  final angleStep = 2 * pi / letters.length;
-                  final angle = startAngle + angleStep * i;
-
-                  final letterCenter = Offset(
-                    center.dx + radius * cos(angle),
-                    center.dy + radius * sin(angle),
-                  );
-
-                  // Phát âm thanh khi chọn chữ cái
-                  HapticFeedback.selectionClick();
-
-                  setState(() {
-                    selectedIndexes.add(i);
-                    // Thêm vị trí trung tâm chữ cái để đường vẽ đúng
-                    points.add(letterCenter);
-                    // Đặt currentDragPosition để có thể vẽ đường từ chữ cái này
-                    currentDragPosition = localPosition;
-                  });
-                  return;
-                }
-              }
-            }
-
-            setState(() {
-              currentDragPosition = localPosition;
-            });
-          },
-          onPointerUp: (details) {
-            String result = selectedIndexes.map((i) => letters[i]).join();
-            if (result == correctWord) {
-              _playSuccessSound();
-              _celebrationController.forward().then((_) {
-                _celebrationController.reset();
-                _showSuccessPopup(result);
-              });
-            } else {
-              _playErrorSound();
-              _shakeController.forward().then((_) {
-                _shakeController.reset();
-              });
-              _showErrorPopup(result);
-            }
-            setState(() {
-              currentDragPosition = null;
-            });
-          },
-          child: Stack(
-            children: [
-              // 1. Lớp vẽ dây (nằm sau)
-              Positioned.fill(
-                child: IgnorePointer(
-                  child: CustomPaint(
-                    painter: PathPainter(points, currentDragPosition),
-                    size: Size.infinite,
-                  ),
-                ),
+        Scaffold(
+          backgroundColor: Colors.transparent,
+          appBar: AppBar(
+            centerTitle: true,
+            backgroundColor: Colors.transparent,
+            title: Text("${Strings.level} ${currentLevel + 1}"),
+            actions: [
+              IconButton(
+                icon: const Icon(Icons.lightbulb_rounded),
+                onPressed: () => _showSuggestPopup(result),
               ),
-              // 2. Chữ cái với animation
-              ..._buildLetterCircle(screenSize),
-              // 3. Level progress
-              Positioned(
-                top: 20,
-                left: 20,
-                right: 20,
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 8,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.9),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "${Strings.progress}: ${currentLevel + 1}/${words.length}",
-                      ),
-                      SizedBox(width: 10),
-                      // Hiển thị thanh tiến độ
-                      LinearProgressIndicator(
-                        value: (currentLevel + 1) / words.length,
-                        borderRadius: BorderRadius.circular(10),
-                        backgroundColor: Colors.grey[300],
-                        valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
-                      ).expand(),
-                    ],
-                  ),
-                ),
+              IconButton(
+                icon: const Icon(Icons.refresh),
+                onPressed: _resetCurrentLevel,
               ),
-              // 4. Celebration particles
-              if (_celebrationAnimation.value > 0)
-                ...List.generate(20, (i) {
-                  final random = Random(i);
-                  return Positioned(
-                    left: random.nextDouble() * screenSize.width,
-                    top: random.nextDouble() * screenSize.height,
-                    child: AnimatedBuilder(
-                      animation: _celebrationAnimation,
-                      builder: (context, child) {
-                        return Transform.scale(
-                          scale: _celebrationAnimation.value,
-                          child: Container(
-                            width: 8,
-                            height: 8,
-                            decoration: BoxDecoration(
-                              color:
-                                  Colors.primaries[i % Colors.primaries.length],
-                              shape: BoxShape.circle,
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                  );
-                }),
+              IconButton(
+                icon: const Icon(Icons.skip_next),
+                onPressed: currentLevel < words.length - 1 ? _nextLevel : null,
+              ),
             ],
           ),
+          body: SizedBox(
+            width: screenSize.width,
+            height: screenSize.height,
+            child: Listener(
+              onPointerDown: (details) {
+                // Kiểm tra nếu đang ở trong vùng progress bar
+                if (isInProgressBarArea(details.position)) {
+                  return; // Không làm gì nếu đang ở trong progress bar
+                }
+                // Nếu không ở trong progress bar, bắt đầu vẽ đường
+                setState(() {
+                  points.clear();
+                  selectedIndexes.clear();
+                  currentDragPosition = null;
+                });
+              },
+              onPointerMove: (details) {
+                // Kiểm tra nếu đang ở trong vùng progress bar
+                if (isInProgressBarArea(details.position)) {
+                  return; // Không làm gì nếu đang ở trong progress bar
+                }
+                // Nếu không ở trong progress bar, bắt đầu vẽ đường
+                final localPosition = details.localPosition;
+
+                for (int i = 0; i < letters.length; i++) {
+                  final key = keyMap[i]!;
+                  final box =
+                      key.currentContext?.findRenderObject() as RenderBox?;
+                  if (box != null) {
+                    final position = box.localToGlobal(Offset.zero);
+                    final size = box.size;
+                    final rect = position & size;
+
+                    if (rect.contains(details.position) &&
+                        !selectedIndexes.contains(i)) {
+                      // Tính toán vị trí trung tâm của chữ cái
+                      final screenSize = MediaQuery.of(context).size;
+                      final double radius =
+                          min(screenSize.width, screenSize.height) * 0.25;
+                      final center = Offset(
+                        screenSize.width / 2,
+                        (screenSize.height - 100) / 2,
+                      );
+
+                      final startAngle = -pi / 2;
+                      final angleStep = 2 * pi / letters.length;
+                      final angle = startAngle + angleStep * i;
+
+                      final letterCenter = Offset(
+                        center.dx + radius * cos(angle),
+                        center.dy + radius * sin(angle),
+                      );
+
+                      // Phát âm thanh khi chọn chữ cái
+                      HapticFeedback.selectionClick();
+
+                      setState(() {
+                        selectedIndexes.add(i);
+                        // Thêm vị trí trung tâm chữ cái để đường vẽ đúng
+                        points.add(letterCenter);
+                        // Đặt currentDragPosition để có thể vẽ đường từ chữ cái này
+                        currentDragPosition = localPosition;
+                      });
+                      return;
+                    }
+                  }
+                }
+
+                setState(() {
+                  currentDragPosition = localPosition;
+                });
+              },
+              onPointerUp: (details) {
+                // Kiểm tra nếu đang ở trong vùng progress bar
+                if (isInProgressBarArea(details.position)) {
+                  return; // Không làm gì nếu đang ở trong progress bar
+                }
+                // Nếu không ở trong progress bar, bắt đầu vẽ đường
+                String result = selectedIndexes.map((i) => letters[i]).join();
+                if (result == correctWord) {
+                  _playSuccessSound();
+                  _celebrationController.forward().then((_) {
+                    _celebrationController.reset();
+                    _showSuccessPopup(result);
+                  });
+                } else {
+                  _playErrorSound();
+                  _shakeController.forward().then((_) {
+                    _shakeController.reset();
+                  });
+                  _showErrorPopup(result);
+                }
+                setState(() {
+                  currentDragPosition = null;
+                });
+              },
+              child: Stack(
+                children: [
+                  // 1. Lớp vẽ dây (nằm sau)
+                  Positioned.fill(
+                    child: IgnorePointer(
+                      child: CustomPaint(
+                        painter: PathPainter(
+                          points,
+                          currentDragPosition,
+                          lineColor: themeColor.primaryColor,
+                          shadowColor: themeColor.shadowColor,
+                          dotColor: themeColor.primaryColor.withOpacity(0.5),
+                          dotBorderColor: themeColor.primaryColor,
+                        ),
+                        size: Size.infinite,
+                      ),
+                    ),
+                  ),
+                  // 2. Chữ cái với animation
+                  ..._buildLetterCircle(screenSize),
+                  // 3. Level progress
+                  Positioned(
+                    top: 20,
+                    left: 20,
+                    right: 20,
+                    child: InkWell(
+                      onTap: () {
+                        // Hiển thị dialog khi nhấn vào progress
+                        showDialog(
+                          context: context,
+                          builder:
+                              (_) => AlertDialog(
+                                title: Text(Strings.progress),
+                                content: Text(
+                                  "${currentLevel + 1}/${words.length}",
+                                ),
+                                actions: [
+                                  TextButton(
+                                    onPressed:
+                                        () => Navigator.of(context).pop(),
+                                    child: Text(Strings.ok),
+                                  ),
+                                ],
+                              ),
+                        );
+                      },
+                      child: Container(
+                        key: progressBarKey,
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 16,
+                          vertical: 8,
+                        ),
+                        decoration: BoxDecoration(
+                          color: themeColor.buttonColor,
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "${Strings.progress}: ${currentLevel + 1}/${words.length}",
+                            ),
+                            SizedBox(width: 10),
+                            // Hiển thị thanh tiến độ
+                            LinearProgressIndicator(
+                              minHeight: 10,
+                              value: (currentLevel + 1) / words.length,
+                              borderRadius: BorderRadius.circular(10),
+                              backgroundColor: themeColor.iconColor.withOpacity(
+                                0.2,
+                              ),
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                themeColor.iconColor,
+                              ),
+                            ).expand(),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  // 4. Celebration particles
+                  if (_celebrationAnimation.value > 0)
+                    ...List.generate(20, (i) {
+                      final random = Random(i);
+                      return Positioned(
+                        left: random.nextDouble() * screenSize.width,
+                        top: random.nextDouble() * screenSize.height,
+                        child: AnimatedBuilder(
+                          animation: _celebrationAnimation,
+                          builder: (context, child) {
+                            return Transform.scale(
+                              scale: _celebrationAnimation.value,
+                              child: Container(
+                                width: 8,
+                                height: 8,
+                                decoration: BoxDecoration(
+                                  color:
+                                      Colors.primaries[i %
+                                          Colors.primaries.length],
+                                  shape: BoxShape.circle,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      );
+                    }),
+                  Positioned(
+                    width: screenSize.width,
+                    bottom: 20,
+                    child: Center(
+                      child: Text(
+                        "${Strings.connectTheWord}: ${words[currentLevel].meaning}",
+                        style: TextStyle(
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 }
@@ -464,73 +598,4 @@ class _GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
 // Extension helper
 extension on Widget {
   Widget expand() => Expanded(child: this);
-}
-
-class PathPainter extends CustomPainter {
-  final List<Offset> points;
-  final Offset? currentDrag;
-
-  PathPainter(this.points, this.currentDrag);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    if (points.isEmpty && currentDrag == null) return;
-
-    // Vẽ đường nối chính với gradient
-    final paint =
-        Paint()
-          ..shader = LinearGradient(
-            colors: [Colors.orange, Colors.deepOrange],
-          ).createShader(
-            Rect.fromPoints(
-              points.isNotEmpty ? points.first : (currentDrag ?? Offset.zero),
-              currentDrag ?? (points.isNotEmpty ? points.last : Offset.zero),
-            ),
-          )
-          ..strokeWidth = 5
-          ..strokeCap = StrokeCap.round
-          ..style = PaintingStyle.stroke;
-
-    // Vẽ shadow cho đường nối
-    final shadowPaint =
-        Paint()
-          ..color = Colors.orange.withOpacity(0.3)
-          ..strokeWidth = 8
-          ..strokeCap = StrokeCap.round
-          ..style = PaintingStyle.stroke;
-
-    // Vẽ đường nối giữa các điểm đã chọn
-    for (int i = 0; i < points.length - 1; i++) {
-      canvas.drawLine(points[i], points[i + 1], shadowPaint);
-      canvas.drawLine(points[i], points[i + 1], paint);
-    }
-
-    // Nối đoạn cuối đến vị trí kéo hiện tại
-    if (points.isNotEmpty && currentDrag != null) {
-      canvas.drawLine(points.last, currentDrag!, shadowPaint);
-      canvas.drawLine(points.last, currentDrag!, paint);
-    }
-
-    // Vẽ các điểm nối với hiệu ứng pulse
-    final dotPaint =
-        Paint()
-          ..color = Colors.orange
-          ..style = PaintingStyle.fill;
-
-    final dotBorderPaint =
-        Paint()
-          ..color = Colors.white
-          ..style = PaintingStyle.fill;
-
-    for (int i = 0; i < points.length; i++) {
-      final pulseRadius =
-          6 + sin(DateTime.now().millisecondsSinceEpoch / 200.0 + i) * 2;
-      canvas.drawCircle(points[i], pulseRadius, dotBorderPaint);
-      canvas.drawCircle(points[i], pulseRadius - 2, dotPaint);
-    }
-  }
-
-  @override
-  bool shouldRepaint(covariant PathPainter oldDelegate) =>
-      oldDelegate.points != points || oldDelegate.currentDrag != currentDrag;
 }

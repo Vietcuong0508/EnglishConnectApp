@@ -3,6 +3,7 @@ import 'package:english_connect/ui/ui.dart';
 import 'package:flutter/material.dart';
 import 'package:motion_tab_bar/MotionTabBar.dart';
 import 'package:motion_tab_bar/MotionTabBarController.dart';
+import 'package:provider/provider.dart';
 
 class AppTabbarScreen extends StatefulWidget {
   const AppTabbarScreen({super.key});
@@ -33,6 +34,8 @@ class _AppTabbarScreenState extends State<AppTabbarScreen>
 
   @override
   Widget build(BuildContext context) {
+    final theme = context.watch<ThemeManager>().currentTheme;
+
     return BaseView<AppTabbarViewModel>(
       onViewModelReady: (viewModel) {
         if (mounted &&
@@ -61,13 +64,13 @@ class _AppTabbarScreenState extends State<AppTabbarScreen>
             tabSize: 50,
             tabBarHeight: 55,
             textStyle: TextStyle(
-              color: AppColors.textColor,
+              color: theme.textColor,
               fontWeight: FontWeight.bold,
             ),
-            tabIconColor: AppColors.iconColor,
-            tabIconSelectedColor: AppColors.primaryColor,
+            tabIconColor: theme.iconColor,
+            tabIconSelectedColor: theme.primaryColor,
             tabSelectedColor: Colors.white,
-            tabBarColor: AppColors.primaryColor,
+            tabBarColor: theme.primaryColor,
             onTabItemSelected: (index) {
               final selected = AppTabbarExt.getAppTabbar(index);
               viewModel.setTabbarSelected(selected);

@@ -11,15 +11,24 @@ GetIt locator = GetIt.instance;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  final themeManager = ThemeManager();
+  await themeManager.loadThemeFromPrefs();
+
   await dotenv.load(fileName: ".env");
   await EasyLocalization.ensureInitialized();
   ServiceLocator.instance.registerDependencies();
+
   runApp(
     EasyLocalization(
       supportedLocales: const [Locale('en'), Locale('vi')],
       path: 'assets/locales',
       fallbackLocale: const Locale('en'),
-      child: const EnglishConnectApp(),
+      child: ChangeNotifierProvider.value(
+        value: themeManager,
+        // Initialize the theme manager with a default theme
+        child: const EnglishConnectApp(),
+      ),
     ),
   );
 }
@@ -29,6 +38,8 @@ class EnglishConnectApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeColor = context.watch<ThemeManager>().currentTheme;
+
     // print("Current locale: ${context.locale}");
     // print("Supported locales: ${context.supportedLocales}");
     // print("Testing translation: ${'app_name'.tr()}");
@@ -43,7 +54,7 @@ class EnglishConnectApp extends StatelessWidget {
         localizationsDelegates: context.localizationDelegates,
         locale: context.locale,
         supportedLocales: context.supportedLocales,
-        theme: ThemeData(primaryColor: AppColors.primaryColor),
+        theme: createThemeFrom(themeColor),
         navigatorKey: GlobalKeys.appRootNavigatorKey,
         initialRoute: RouteNames.homeView,
         onGenerateRoute: AppRouter.onGenerateRoute,

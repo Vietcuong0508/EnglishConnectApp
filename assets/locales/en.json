@@ -1,12 +1,26 @@
 {
-    "ok": "OK",
+    "ok": "Ok",
     "cancel": "Cancel",
+    "close": "Close",
     "app_name": "English Connect",
     "welcome_message": "Welcome to English Connect!",
     "welcome_subtitle": "Learn English through games and fun activities.",
     "home_tab": "Home",
     "game_tab": "Game",
     "settings_tab": "Settings",
+    "topics": "Topics",
+    "profile": "Profile",
     "level": "Level",
-    "progress": "Progress"
+    "progress": "Progress",
+    "play": "Play",
+    "next_level": "Next Level",
+    "play_again": "Play Again",
+    "try_again": "Try Again",
+    "excellent": "Excellent !",
+    "the_exact_word": "The exact word is",
+    "complete": "complete",
+    "your_choice": "Your choice",
+    "connect_the_word": "Connect the word",
+    "suggest": "Suggest",
+    "pronounce": "Pronounce"
 }

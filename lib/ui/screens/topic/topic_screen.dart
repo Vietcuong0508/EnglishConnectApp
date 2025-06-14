@@ -1,7 +1,8 @@
-import 'package:english_connect/core/constants/colors.dart';
+import 'package:english_connect/core/core.dart';
 import 'package:english_connect/models/model.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:english_connect/ui/ui.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TopicScreen extends StatelessWidget {
   TopicScreen({super.key});
@@ -65,69 +66,33 @@ class TopicScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = context.watch<ThemeManager>().currentTheme;
+
     return Stack(
       children: [
         Container(
-          decoration: BoxDecoration(gradient: AppColors.backgroundGradient),
+          decoration: BoxDecoration(gradient: theme.backgroundGradient),
         ),
         Scaffold(
           backgroundColor: Colors.transparent,
           appBar: AppBar(
             backgroundColor: Colors.transparent,
-            foregroundColor: AppColors.primaryColor,
-            title: Text('Topics'),
+            title: Text(Strings.topic),
           ),
           body: ListView.builder(
             itemCount: topics.length,
             itemBuilder: (context, index) {
-              return Card(
-                color: AppColors.cardColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                elevation: 6,
-                shadowColor: AppColors.shadowColor,
-                margin: const EdgeInsets.fromLTRB(16, 8, 16, 8),
-                child: InkWell(
-                  borderRadius: BorderRadius.circular(10),
-                  onTap: () {
-                    // Xử lý chọn chủ đề
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Row(
-                      children: [
-                        const Icon(
-                          Icons.folder,
-                          color: AppColors.primaryColor,
-                          size: 30,
-                        ),
-                        const SizedBox(width: 16),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              topics[index].name,
-                              style: const TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.textColor,
-                              ),
-                            ),
-                            const SizedBox(height: 4),
-                            Text(
-                              topics[index].description,
-                              style: const TextStyle(
-                                fontSize: 14,
-                                color: AppColors.textColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+              return CustomButton(
+                icon: Icons.topic,
+                title: topics[index].name,
+                description: topics[index].description,
+                onPressed: () {
+                  Navigator.pushNamed(
+                    context,
+                    '/topicDetail',
+                    arguments: topics[index],
+                  );
+                },
               );
             },
           ),

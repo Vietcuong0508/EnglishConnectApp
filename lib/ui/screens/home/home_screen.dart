@@ -1,5 +1,6 @@
 import 'package:english_connect/core/core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -73,6 +74,7 @@ class _HomeScreenState extends State<HomeScreen>
   Widget buildCircleButton({
     required IconData icon,
     required VoidCallback onTap,
+    required ThemeColors theme,
     double size = 60,
     double iconSize = 30,
     String? label,
@@ -86,18 +88,18 @@ class _HomeScreenState extends State<HomeScreen>
             width: size,
             height: size,
             decoration: BoxDecoration(
-              color: AppColors.buttonColor,
+              color: theme.buttonColor,
               shape: BoxShape.circle,
-              border: Border.all(color: AppColors.primaryColor, width: 2),
+              border: Border.all(color: theme.borderColor, width: 2),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.shadowColor,
+                  color: theme.shadowColor,
                   blurRadius: 8,
                   offset: const Offset(0, 4),
                 ),
               ],
             ),
-            child: Icon(icon, color: AppColors.primaryColor, size: iconSize),
+            child: Icon(icon, color: theme.iconColor, size: iconSize),
           ),
         ),
         if (label != null)
@@ -105,7 +107,7 @@ class _HomeScreenState extends State<HomeScreen>
             padding: const EdgeInsets.only(top: 4),
             child: Text(
               label,
-              style: TextStyle(color: AppColors.primaryColor, fontSize: 12),
+              style: TextStyle(color: theme.textColor, fontSize: 12),
             ),
           ),
       ],
@@ -114,12 +116,16 @@ class _HomeScreenState extends State<HomeScreen>
 
   @override
   Widget build(BuildContext context) {
+    final theme = context.watch<ThemeManager>().currentTheme;
+
     return Scaffold(
       body: Stack(
         children: [
-          RiveAnimation.asset(
-            'assets/animations/big_ben_english.riv',
-            fit: BoxFit.contain,
+          SizedBox.expand(
+            child: RiveAnimation.asset(
+              'assets/animations/big_ben_english.riv',
+              fit: BoxFit.cover,
+            ),
           ),
           // Nút PLAY ở giữa
           Align(
@@ -134,33 +140,33 @@ class _HomeScreenState extends State<HomeScreen>
                   width: 100,
                   height: 100,
                   decoration: BoxDecoration(
-                    color: AppColors.buttonColor,
+                    color: theme.buttonColor,
                     shape: BoxShape.circle,
-                    border: Border.all(color: AppColors.primaryColor, width: 4),
+                    border: Border.all(color: theme.borderColor, width: 4),
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.shadowColor,
+                        color: theme.shadowColor,
                         blurRadius: 12,
                         spreadRadius: 2,
                         offset: const Offset(0, 6),
                       ),
                     ],
                   ),
-                  child: const Center(
+                  child: Center(
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Icon(
                           Icons.play_arrow,
                           size: 40,
-                          color: AppColors.primaryColor,
+                          color: theme.iconColor,
                         ),
                         Text(
                           "PLAY",
                           style: TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
-                            color: AppColors.primaryColor,
+                            color: theme.textColor,
                           ),
                         ),
                       ],
@@ -176,6 +182,7 @@ class _HomeScreenState extends State<HomeScreen>
             top: 40,
             right: 16,
             child: buildCircleButton(
+              theme: theme,
               icon: Icons.settings,
               size: 40,
               iconSize: 20,
@@ -191,6 +198,7 @@ class _HomeScreenState extends State<HomeScreen>
             bottom: 40,
             right: 16,
             child: buildCircleButton(
+              theme: theme,
               icon: Icons.menu_book_rounded,
               size: 40,
               iconSize: 20,
@@ -206,6 +214,7 @@ class _HomeScreenState extends State<HomeScreen>
             bottom: 40,
             left: 16,
             child: buildCircleButton(
+              theme: theme,
               icon: Icons.manage_accounts_rounded,
               size: 40,
               iconSize: 20,
