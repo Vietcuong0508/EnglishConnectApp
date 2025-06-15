@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "word": "Doctor",
+        "pronunciation": "/ˈdɒk.tər/",
+        "meaning": "Bác sĩ",
+        "image": "https://example.com/images/doctor.jpg"
+    },
+    {
+        "id": 2,
+        "word": "Engineer",
+        "pronunciation": "/ˌen.dʒɪˈnɪər/",
+        "meaning": "Kỹ sư",
+        "image": "https://example.com/images/engineer.jpg"
+    },
+    {
+        "id": 3,
+        "word": "Teacher",
+        "pronunciation": "/ˈtiː.tʃər/",
+        "meaning": "Giáo viên",
+        "image": "https://example.com/images/teacher.jpg"
+    },
+    {
+        "id": 4,
+        "word": "Chef",
+        "pronunciation": "/ʃef/",
+        "meaning": "Đầu bếp",
+        "image": "https://example.com/images/chef.jpg"
+    },
+    {
+        "id": 5,
+        "word": "Artist",
+        "pronunciation": "/ˈɑː.tɪst/",
+        "meaning": "Nghệ sĩ",
+        "image": "https://example.com/images/artist.jpg"
+    }
+]

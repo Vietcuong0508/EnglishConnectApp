@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "word": "Apple",
+        "pronunciation": "/ˈæp.əl/",
+        "meaning": "Táo",
+        "image": "https://example.com/images/apple.jpg"
+    },
+    {
+        "id": 2,
+        "word": "Banana",
+        "pronunciation": "/bəˈnæn.ə/",
+        "meaning": "Chuối",
+        "image": "https://example.com/images/banana.jpg"
+    },
+    {
+        "id": 3,
+        "word": "Orange",
+        "pronunciation": "/ˈɔːr.ɪndʒ/",
+        "meaning": "Cam",
+        "image": "https://example.com/images/orange.jpg"
+    },
+    {
+        "id": 4,
+        "word": "Grapes",
+        "pronunciation": "/ɡreɪps/",
+        "meaning": "Nho",
+        "image": "https://example.com/images/grapes.jpg"
+    },
+    {
+        "id": 5,
+        "word": "Strawberry",
+        "pronunciation": "/ˈstrɔː.bər.i/",
+        "meaning": "Dâu tây",
+        "image": "https://example.com/images/strawberry.jpg"
+    }
+]

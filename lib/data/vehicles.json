@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "word": "Lamborghini",
+        "pronunciation": "/ˌlæm.bəˈɡiː.ni/",
+        "meaning": "Lamborghini",
+        "image": "https://example.com/images/lamborghini.jpg"
+    },
+    {
+        "id": 2,
+        "word": "Ferrari",
+        "pronunciation": "/fəˈrɑː.ri/",
+        "meaning": "Ferrari",
+        "image": "https://example.com/images/ferrari.jpg"
+    },
+    {
+        "id": 3,
+        "word": "Tesla",
+        "pronunciation": "/ˈtɛs.lə/",
+        "meaning": "Tesla",
+        "image": "https://example.com/images/tesla.jpg"
+    },
+    {
+        "id": 4,
+        "word": "Ford",
+        "pronunciation": "/fɔːrd/",
+        "meaning": "Ford",
+        "image": "https://example.com/images/ford.jpg"
+    },
+    {
+        "id": 5,
+        "word": "Toyota",
+        "pronunciation": "/tɔɪˈoʊ.tə/",
+        "meaning": "Toyota",
+        "image": "https://example.com/images/toyota.jpg"
+    }
+]

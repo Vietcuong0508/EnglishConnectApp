@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "name": "Animals",
+        "description": "Learn about animals",
+        "image": "https://example.com/images/animals.jpg"
+    },
+    {
+        "id": "2",
+        "name": "Colors",
+        "description": "Learn about colors",
+        "image": "https://example.com/images/colors.jpg"
+    },
+    {
+        "id": "3",
+        "name": "Fruits",
+        "description": "Learn about fruits",
+        "image": "https://example.com/images/fruits.jpg"
+    },
+    {
+        "id": "4",
+        "name": "Jobs",
+        "description": "Learn about different jobs",
+        "image": "https://example.com/images/jobs.jpg"
+    },
+    {
+        "id": "5",
+        "name": "vehicles",
+        "description": "Learn about vehicles",
+        "image": "https://example.com/images/vehicles.jpg"
+    }
+]

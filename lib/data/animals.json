@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "word": "Dog",
+        "pronunciation": "/dɔːɡ/",
+        "meaning": "Chó",
+        "image": "https://example.com/images/dog.jpg"
+    },
+    {
+        "id": 2,
+        "word": "Cat",
+        "pronunciation": "/kæt/",
+        "meaning": "Mèo",
+        "image": "https://example.com/images/cat.jpg"
+    },
+    {
+        "id": 3,
+        "word": "Elephant",
+        "pronunciation": "/ˈɛlɪfənt/",
+        "meaning": "Voi",
+        "image": "https://example.com/images/elephant.jpg"
+    },
+    {
+        "id": 4,
+        "word": "Lion",
+        "pronunciation": "/ˈlaɪ.ən/",
+        "meaning": "Sư tử",
+        "image": "https://example.com/images/lion.jpg"
+    },
+    {
+        "id": 5,
+        "word": "Tiger",
+        "pronunciation": "/ˈtaɪɡər/",
+        "meaning": "Hổ",
+        "image": "https://example.com/images/tiger.jpg"
+    }
+]

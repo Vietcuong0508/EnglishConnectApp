@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "word": "Red",
+        "pronunciation": "/rɛd/",
+        "meaning": "Đỏ",
+        "image": "https://example.com/images/red.jpg"
+    },
+    {
+        "id": 2,
+        "word": "Blue",
+        "pronunciation": "/bluː/",
+        "meaning": "Xanh dương",
+        "image": "https://example.com/images/blue.jpg"
+    },
+    {
+        "id": 3,
+        "word": "Green",
+        "pronunciation": "/ɡriːn/",
+        "meaning": "Xanh lá",
+        "image": "https://example.com/images/green.jpg"
+    },
+    {
+        "id": 4,
+        "word": "Yellow",
+        "pronunciation": "/ˈjɛloʊ/",
+        "meaning": "Vàng",
+        "image": "https://example.com/images/yellow.jpg"
+    },
+    {
+        "id": 5,
+        "word": "Black",
+        "pronunciation": "/blæk/",
+        "meaning": "Đen",
+        "image": "https://example.com/images/black.jpg"
+    }
+]
