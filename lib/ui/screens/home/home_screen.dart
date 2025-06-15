@@ -1,4 +1,5 @@
 import 'package:english_connect/core/core.dart';
+import 'package:english_connect/ui/ui.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:rive/rive.dart';
@@ -118,114 +119,125 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     final theme = context.watch<ThemeManager>().currentTheme;
 
-    return Scaffold(
-      body: Stack(
-        children: [
-          SizedBox.expand(
-            child: RiveAnimation.asset(
-              'assets/animations/big_ben_english.riv',
-              fit: BoxFit.cover,
-            ),
-          ),
-          // Nút PLAY ở giữa
-          Align(
-            alignment: Alignment.center,
-            child: ScaleTransition(
-              scale: _scaleAnimation,
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamed(context, '/game');
-                },
-                child: Container(
-                  width: 100,
-                  height: 100,
-                  decoration: BoxDecoration(
-                    color: theme.buttonColor,
-                    shape: BoxShape.circle,
-                    border: Border.all(color: theme.borderColor, width: 4),
-                    boxShadow: [
-                      BoxShadow(
-                        color: theme.shadowColor,
-                        blurRadius: 12,
-                        spreadRadius: 2,
-                        offset: const Offset(0, 6),
-                      ),
-                    ],
-                  ),
-                  child: Center(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(
-                          Icons.play_arrow,
-                          size: 40,
-                          color: theme.iconColor,
-                        ),
-                        Text(
-                          "PLAY",
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: theme.textColor,
+    return BaseView<HomeViewModel>(
+      onViewModelReady: (viewModel) async {
+        await viewModel.loadRandomWords();
+      },
+      builder: (context, viewModel, _) {
+        return Scaffold(
+          body: Stack(
+            children: [
+              SizedBox.expand(
+                child: RiveAnimation.asset(
+                  'assets/animations/big_ben_english.riv',
+                  fit: BoxFit.cover,
+                ),
+              ),
+              // Nút PLAY ở giữa
+              Align(
+                alignment: Alignment.center,
+                child: ScaleTransition(
+                  scale: _scaleAnimation,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(
+                        context,
+                        '/game',
+                        arguments: {"randomWord": viewModel.selectedWords},
+                      );
+                    },
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: theme.buttonColor,
+                        shape: BoxShape.circle,
+                        border: Border.all(color: theme.borderColor, width: 4),
+                        boxShadow: [
+                          BoxShadow(
+                            color: theme.shadowColor,
+                            blurRadius: 12,
+                            spreadRadius: 2,
+                            offset: const Offset(0, 6),
                           ),
+                        ],
+                      ),
+                      child: Center(
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(
+                              Icons.play_arrow,
+                              size: 40,
+                              color: theme.iconColor,
+                            ),
+                            Text(
+                              "PLAY",
+                              style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                                color: theme.textColor,
+                              ),
+                            ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          ),
 
-          // Nút Cài đặt
-          Positioned(
-            top: 40,
-            right: 16,
-            child: buildCircleButton(
-              theme: theme,
-              icon: Icons.settings,
-              size: 40,
-              iconSize: 20,
-              onTap: () {
-                Navigator.pushNamed(context, '/settings');
-              },
-              // label: "Cài đặt",
-            ),
-          ),
+              // Nút Cài đặt
+              Positioned(
+                top: 40,
+                right: 16,
+                child: buildCircleButton(
+                  theme: theme,
+                  icon: Icons.settings,
+                  size: 40,
+                  iconSize: 20,
+                  onTap: () {
+                    Navigator.pushNamed(context, '/settings');
+                  },
+                  // label: "Cài đặt",
+                ),
+              ),
 
-          // Nút chọn chủ đề (phải)
-          Positioned(
-            bottom: 40,
-            right: 16,
-            child: buildCircleButton(
-              theme: theme,
-              icon: Icons.menu_book_rounded,
-              size: 40,
-              iconSize: 20,
-              onTap: () {
-                Navigator.pushNamed(context, '/topic');
-              },
-              // label: "Chủ đề",
-            ),
-          ),
+              // Nút chọn chủ đề (phải)
+              Positioned(
+                bottom: 40,
+                right: 16,
+                child: buildCircleButton(
+                  theme: theme,
+                  icon: Icons.menu_book_rounded,
+                  size: 40,
+                  iconSize: 20,
+                  onTap: () {
+                    Navigator.pushNamed(context, '/topic');
+                  },
+                  // label: "Chủ đề",
+                ),
+              ),
 
-          // Nút chọn chủ đề (trái - có thể thay bằng nút khác)
-          Positioned(
-            bottom: 40,
-            left: 16,
-            child: buildCircleButton(
-              theme: theme,
-              icon: Icons.manage_accounts_rounded,
-              size: 40,
-              iconSize: 20,
-              onTap: () {
-                Navigator.pushNamed(context, '/profile');
-              },
-              // label: "Tài khoản",
-            ),
+              // Nút chọn chủ đề (trái - có thể thay bằng nút khác)
+              Positioned(
+                bottom: 40,
+                left: 16,
+                child: buildCircleButton(
+                  theme: theme,
+                  icon: Icons.manage_accounts_rounded,
+                  size: 40,
+                  iconSize: 20,
+                  onTap: () {
+                    Navigator.pushNamed(context, '/profile');
+                  },
+                  // label: "Tài khoản",
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

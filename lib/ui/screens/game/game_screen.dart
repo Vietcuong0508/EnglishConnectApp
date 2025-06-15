@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:english_connect/core/core.dart';
+import 'package:english_connect/models/model.dart';
 import 'package:english_connect/ui/ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,8 +8,9 @@ import 'package:provider/provider.dart';
 import 'package:confetti/confetti.dart';
 
 class GameScreen extends StatefulWidget {
-  const GameScreen({super.key});
-
+  const GameScreen({super.key, this.topicName, this.randomWord});
+  final String? topicName;
+  final List<WordModel>? randomWord;
   @override
   State<GameScreen> createState() => GameScreenState();
 }
@@ -185,7 +187,7 @@ class GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
 
     return BaseView<GameViewModel>(
       onViewModelReady: (viewModel) async {
-        await viewModel.loadWordsByTopic("fruits.json");
+        await viewModel.loadWords(widget.topicName, widget.randomWord);
         viewModel.initializeLevel();
       },
       builder: (context, viewModel, _) {

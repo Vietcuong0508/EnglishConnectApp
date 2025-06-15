@@ -25,9 +25,18 @@ extension LetterCircleWidget on GameScreenState {
     final dx = center.dx + radius * cos(angle);
     final dy = center.dy + radius * sin(angle);
 
-    final double circleSize = totalLetters > 8 ? baseSize * 0.6 : baseSize;
+    final double circleSize =
+        totalLetters > 8
+            ? baseSize * 0.6
+            : totalLetters > 5
+            ? baseSize * 0.8
+            : baseSize;
     final double letterSize =
-        totalLetters > 8 ? baseLetterSize * 0.6 : baseLetterSize;
+        totalLetters > 8
+            ? baseLetterSize * 0.6
+            : totalLetters > 5
+            ? baseLetterSize * 0.8
+            : baseLetterSize;
 
     return AnimatedBuilder(
       animation: celebrationAnimation,

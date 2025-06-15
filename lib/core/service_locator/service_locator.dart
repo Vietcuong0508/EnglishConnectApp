@@ -17,5 +17,7 @@ class ServiceLocator {
     locator.registerFactory<HomeViewModel>(() => HomeViewModel());
     locator.registerFactory<GameViewModel>(() => GameViewModel());
     locator.registerFactory<SettingsViewModel>(() => SettingsViewModel());
+    locator.registerFactory<ProfileViewModel>(() => ProfileViewModel());
+    locator.registerFactory<TopicViewModel>(() => TopicViewModel());
   }
 }

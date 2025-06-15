@@ -23,13 +23,31 @@ final class GameViewModel extends BaseViewModel {
   final Map<int, GlobalKey> keyMap = {};
 
   /// Load từ vựng từ file theo chủ đề
-  Future<void> loadWordsByTopic(String topicFile) async {
-    final jsonString = await rootBundle.loadString('lib/data/$topicFile');
-    final List<dynamic> jsonList = jsonDecode(jsonString);
-    words = jsonList.map((json) => WordModel.fromJson(json)).toList();
-    currentLevel = 0;
-    initializeLevel();
-    notifyListeners();
+  Future<void> loadWords(String? topicFile, List<WordModel>? randomWord) async {
+    try {
+      if (topicFile != null && topicFile.isNotEmpty) {
+        // Load từ file theo chủ đề
+        final jsonString = await rootBundle.loadString(
+          'lib/data/${topicFile.toLowerCase()}.json',
+        );
+
+        final List<dynamic> jsonList = jsonDecode(jsonString);
+        words = jsonList.map((json) => WordModel.fromJson(json)).toList();
+      } else if (randomWord != null && randomWord.isNotEmpty) {
+        // Dùng danh sách random đã truyền vào
+        words = randomWord;
+      } else {
+        // Trường hợp cả 2 đều không hợp lệ
+        debugPrint('Không có dữ liệu để load');
+        return;
+      }
+
+      currentLevel = 0;
+      initializeLevel();
+      notifyListeners();
+    } catch (e) {
+      debugPrint('Lỗi khi load dữ liệu: $e');
+    }
   }
 
   /// Khởi tạo chữ cái, key

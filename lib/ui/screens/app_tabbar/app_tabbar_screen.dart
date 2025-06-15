@@ -78,7 +78,11 @@ class _AppTabbarScreenState extends State<AppTabbarScreen>
           ),
           body: IndexedStack(
             index: viewModel.tabbarSelected.index,
-            children: const [HomeScreen(), GameScreen(), SettingsScreen()],
+            children: const [
+              HomeScreen(),
+              GameScreen(topicName: ""),
+              SettingsScreen(),
+            ],
           ),
         );
       },

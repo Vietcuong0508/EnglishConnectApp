@@ -1,3 +1,4 @@
+import 'package:english_connect/models/model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +22,12 @@ class AppRouter {
       case RouteNames.homeView:
         return CupertinoPageRoute(builder: (_) => const HomeScreen());
       case RouteNames.gameView:
-        return CupertinoPageRoute(builder: (_) => const GameScreen());
+        final String? topicName = arguments['topicName'];
+        final List<WordModel>? randomWord = arguments['randomWord'];
+        return CupertinoPageRoute(
+          builder:
+              (_) => GameScreen(topicName: topicName, randomWord: randomWord),
+        );
       case RouteNames.settingsView:
         return CupertinoPageRoute(builder: (_) => const SettingsScreen());
       case RouteNames.profileView:
