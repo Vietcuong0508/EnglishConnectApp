@@ -16,22 +16,22 @@ extension LevelProgressWidget on GameScreenState {
       child: InkWell(
         onTap: () {
           // Hiển thị dialog khi nhấn vào progress
-          showDialog(
-            context: context,
-            builder:
-                (_) => AlertDialog(
-                  title: Text(Strings.progress),
-                  content: Text(
-                    "${viewModel.currentLevel + 1}/${viewModel.words.length}",
-                  ),
-                  actions: [
-                    TextButton(
-                      onPressed: () => Navigator.of(context).pop(),
-                      child: Text(Strings.ok),
-                    ),
-                  ],
-                ),
-          );
+          // showDialog(
+          //   context: context,
+          //   builder:
+          //       (_) => AlertDialog(
+          //         title: Text(Strings.progress),
+          //         content: Text(
+          //           "${viewModel.currentLevel + 1}/${viewModel.words.length}",
+          //         ),
+          //         actions: [
+          //           TextButton(
+          //             onPressed: () => Navigator.of(context).pop(),
+          //             child: Text(Strings.ok),
+          //           ),
+          //         ],
+          //       ),
+          // );
         },
         child: Container(
           key: progressBarKey,

@@ -104,7 +104,7 @@ class GameScreenState extends State<GameScreen> with TickerProviderStateMixin {
             titleColor: Colors.red,
             icon: Icons.close_rounded,
             iconColor: Colors.red,
-            contentText: "${Strings.yourChoice}: $result",
+            contentText: "${Strings.yourChoice}: ${result.toLowerCase()}",
             result: result,
             currentLevel: viewModel.currentLevel + 1,
             totalLevels: viewModel.words.length,

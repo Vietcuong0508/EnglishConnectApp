@@ -14,7 +14,6 @@ final class HomeViewModel extends BaseViewModel {
     notifyListeners();
 
     selectedWords = await _wordService.getOneRandomWordFromEachFile();
-    print("data: ${selectedWords.toString()}");
 
     isLoading = false;
     notifyListeners();

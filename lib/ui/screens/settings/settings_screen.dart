@@ -119,21 +119,4 @@ class SettingsScreen extends StatelessWidget {
       },
     );
   }
-
-  // Widget _buildThemeOption(BuildContext context, ThemeColors theme) {
-  //   final themeManager = context.read<ThemeManager>();
-  //   final isSelected =
-  //       theme.runtimeType == themeManager.currentTheme.runtimeType;
-
-  //   return ListTile(
-  //     leading: Icon(Icons.circle, color: theme.primaryColor),
-  //     title: Text(theme.name),
-  //     trailing:
-  //         isSelected ? const Icon(Icons.check, color: Colors.green) : null,
-  //     onTap: () {
-  //       themeManager.setTheme(theme);
-  //       Navigator.pop(context);
-  //     },
-  //   );
-  // }
 }

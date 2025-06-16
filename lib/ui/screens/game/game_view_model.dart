@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:english_connect/models/model.dart';
 import 'package:english_connect/ui/ui.dart';
@@ -7,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/widgets.dart';
+import 'package:path_provider/path_provider.dart';
 
 final class GameViewModel extends BaseViewModel {
   final FlutterTts tts = FlutterTts();
@@ -23,22 +25,66 @@ final class GameViewModel extends BaseViewModel {
   final Map<int, GlobalKey> keyMap = {};
 
   /// Load từ vựng từ file theo chủ đề
-  Future<void> loadWords(String? topicFile, List<WordModel>? randomWord) async {
+  Future<void> loadWords(String? topicName, List<WordModel>? randomWord) async {
     try {
-      if (topicFile != null && topicFile.isNotEmpty) {
-        // Load từ file theo chủ đề
-        final jsonString = await rootBundle.loadString(
-          'lib/data/${topicFile.toLowerCase()}.json',
-        );
+      if (topicName != null && topicName.isNotEmpty) {
+        try {
+          // 🔹 Ưu tiên: Load từ file asset
+          final jsonString = await rootBundle.loadString(
+            'lib/data/${topicName.toLowerCase()}.json',
+          );
 
-        final List<dynamic> jsonList = jsonDecode(jsonString);
-        words = jsonList.map((json) => WordModel.fromJson(json)).toList();
+          final List<dynamic> jsonList = jsonDecode(jsonString);
+          words = jsonList.map((json) => WordModel.fromJson(json)).toList();
+        } catch (e) {
+          // 🔸 Nếu asset không có, load từ local topics.json
+          debugPrint('⚠️ Không tìm thấy file asset: $e');
+          final directory = await getApplicationDocumentsDirectory();
+          final file = File('${directory.path}/topics.json');
+
+          if (await file.exists()) {
+            final localJson = await file.readAsString();
+            final List<dynamic> localList = jsonDecode(localJson);
+            final topics =
+                localList.map((e) => TopicModel.fromJson(e)).toList();
+
+            final topic = topics.firstWhere(
+              (t) =>
+                  t.name.trim().toLowerCase() == topicName.trim().toLowerCase(),
+              orElse:
+                  () =>
+                      throw Exception(
+                        '❌ Topic "$topicName" not found in local.',
+                      ),
+            );
+
+            if (topic.listWord == null || topic.listWord!.isEmpty) {
+              debugPrint('🔍 Topic "$topicName" has no words.');
+              return;
+            }
+
+            words =
+                topic.listWord!
+                    .map(
+                      (w) => WordModel(
+                        id: w.id,
+                        word: w.word,
+                        pronunciation: w.pronunciation,
+                        meaning: w.meaning,
+                        image: w.image,
+                      ),
+                    )
+                    .toList();
+          } else {
+            debugPrint('❌ Không tìm thấy local topics.json');
+            return;
+          }
+        }
       } else if (randomWord != null && randomWord.isNotEmpty) {
-        // Dùng danh sách random đã truyền vào
+        // 🔹 Nếu truyền sẵn danh sách random
         words = randomWord;
       } else {
-        // Trường hợp cả 2 đều không hợp lệ
-        debugPrint('Không có dữ liệu để load');
+        debugPrint('❌ Không có dữ liệu để load.');
         return;
       }
 
@@ -46,7 +92,7 @@ final class GameViewModel extends BaseViewModel {
       initializeLevel();
       notifyListeners();
     } catch (e) {
-      debugPrint('Lỗi khi load dữ liệu: $e');
+      debugPrint('❌ Lỗi khi load từ chủ đề: $e');
     }
   }
 

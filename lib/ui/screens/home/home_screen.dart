@@ -36,42 +36,6 @@ class _HomeScreenState extends State<HomeScreen>
     super.dispose();
   }
 
-  // void _startRandomGame() {
-  //   final randomTopic = (topics..shuffle()).first;
-  //   Navigator.pushNamed(context, '/game', arguments: randomTopic);
-  // }
-
-  // void _showTopicList() {
-  //   showModalBottomSheet(
-  //     context: context,
-  //     shape: const RoundedRectangleBorder(
-  //       borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-  //     ),
-  //     builder:
-  //         (_) => Column(
-  //           mainAxisSize: MainAxisSize.min,
-  //           children: [
-  //             const Padding(
-  //               padding: EdgeInsets.all(16.0),
-  //               child: Text(
-  //                 'Chọn Chủ Đề',
-  //                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-  //               ),
-  //             ),
-  //             ...topics.map(
-  //               (topic) => ListTile(
-  //                 title: Text(topic),
-  //                 onTap: () {
-  //                   Navigator.pop(context);
-  //                   Navigator.pushNamed(context, '/game', arguments: topic);
-  //                 },
-  //               ),
-  //             ),
-  //           ],
-  //         ),
-  //   );
-  // }
-
   Widget buildCircleButton({
     required IconData icon,
     required VoidCallback onTap,
