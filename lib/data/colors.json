@@ -33,5 +33,159 @@
         "pronunciation": "/blæk/",
         "meaning": "Đen",
         "image": "https://example.com/images/black.jpg"
+    },
+    {
+        "id": 6,
+        "word": "White",
+        "pronunciation": "/waɪt/",
+        "meaning": "Trắng",
+        "image": "https://example.com/images/white.jpg"
+    },
+    {
+        "id": 7,
+        "word": "Purple",
+        "pronunciation": "/ˈpɜːrpl/",
+        "meaning": "Tím",
+        "image": "https://example.com/images/purple.jpg"
+    },
+    {
+        "id": 8,
+        "word": "Orange",
+        "pronunciation": "/ˈɔːrɪndʒ/",
+        "meaning": "Cam",
+        "image": "https://example.com/images/orange.jpg"
+    },
+    {
+        "id": 9,
+        "word": "Pink",
+        "pronunciation": "/pɪŋk/",
+        "meaning": "Hồng",
+        "image": "https://example.com/images/pink.jpg"
+    },
+    {
+        "id": 10,
+        "word": "Brown",
+        "pronunciation": "/braʊn/",
+        "meaning": "Nâu",
+        "image": "https://example.com/images/brown.jpg"
+    },
+    {
+        "id": 11,
+        "word": "Gray",
+        "pronunciation": "/ɡreɪ/",
+        "meaning": "Xám",
+        "image": "https://example.com/images/gray.jpg"
+    },
+    {
+        "id": 12,
+        "word": "Cyan",
+        "pronunciation": "/ˈsaɪ.æn/",
+        "meaning": "Xanh lơ",
+        "image": "https://example.com/images/cyan.jpg"
+    },
+    {
+        "id": 13,
+        "word": "Magenta",
+        "pronunciation": "/məˈdʒɛn.tə/",
+        "meaning": "Hồng tím",
+        "image": "https://example.com/images/magenta.jpg"
+    },
+    {
+        "id": 14,
+        "word": "Lime",
+        "pronunciation": "/laɪm/",
+        "meaning": "Xanh chanh",
+        "image": "https://example.com/images/lime.jpg"
+    },
+    {
+        "id": 15,
+        "word": "Navy",
+        "pronunciation": "/ˈneɪ.vi/",
+        "meaning": "Xanh hải quân",
+        "image": "https://example.com/images/navy.jpg"
+    },
+    {
+        "id": 16,
+        "word": "Olive",
+        "pronunciation": "/ˈɒl.ɪv/",
+        "meaning": "Màu ô liu",
+        "image": "https://example.com/images/olive.jpg"
+    },
+    {
+        "id": 17,
+        "word": "Teal",
+        "pronunciation": "/tiːl/",
+        "meaning": "Xanh nước biển",
+        "image": "https://example.com/images/teal.jpg"
+    },
+    {
+        "id": 18,
+        "word": "Maroon",
+        "pronunciation": "/məˈruːn/",
+        "meaning": "Nâu đỏ",
+        "image": "https://example.com/images/maroon.jpg"
+    },
+    {
+        "id": 19,
+        "word": "Beige",
+        "pronunciation": "/beɪʒ/",
+        "meaning": "Màu be",
+        "image": "https://example.com/images/beige.jpg"
+    },
+    {
+        "id": 20,
+        "word": "Coral",
+        "pronunciation": "/ˈkɔːr.əl/",
+        "meaning": "Màu san hô",
+        "image": "https://example.com/images/coral.jpg"
+    },
+    {
+        "id": 21,
+        "word": "Turquoise",
+        "pronunciation": "/ˈtɜːr.kwɔɪz/",
+        "meaning": "Màu ngọc lam",
+        "image": "https://example.com/images/turquoise.jpg"
+    },
+    {
+        "id": 22,
+        "word": "Violet",
+        "pronunciation": "/ˈvaɪə.lət/",
+        "meaning": "Màu tím hoa cà",
+        "image": "https://example.com/images/violet.jpg"
+    },
+    {
+        "id": 23,
+        "word": "Amber",
+        "pronunciation": "/ˈæm.bər/",
+        "meaning": "Màu hổ phách",
+        "image": "https://example.com/images/amber.jpg"
+    },
+    {
+        "id": 24,
+        "word": "Charcoal",
+        "pronunciation": "/ˈtʃɑːr.koʊl/",
+        "meaning": "Màu than",
+        "image": "https://example.com/images/charcoal.jpg"
+    },
+    {
+        "id": 25,
+        "word": "Ivory",
+        "pronunciation": "/ˈaɪ.vɔːr.i/",
+        "meaning": "Màu ngà",
+        "image": "https://example.com/images/ivory.jpg"
+    },
+    {
+        "id": 26,
+        "word": "Mint",
+        "pronunciation": "/mɪnt/",
+        "meaning": "Màu bạc hà",
+        "image": "https://example.com/images/mint.jpg"
+    },
+    {
+        "id": 27,
+        "word": "Salmon",
+        "pronunciation": "/ˈsæm.ən/",
+        "meaning": "Màu cá hồi",
+        "image": "https://example.com/images/salmon.jpg"
     }
 ]

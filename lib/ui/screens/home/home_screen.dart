@@ -136,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen>
                               color: theme.iconColor,
                             ),
                             Text(
-                              "PLAY",
+                              Strings.play,
                               style: TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,

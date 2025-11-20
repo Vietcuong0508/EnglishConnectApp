@@ -33,5 +33,250 @@
         "pronunciation": "/ˈstrɔː.bər.i/",
         "meaning": "Dâu tây",
         "image": "https://example.com/images/strawberry.jpg"
+    },
+    {
+        "id": 6,
+        "word": "Pineapple",
+        "pronunciation": "/ˈpaɪnˌæp.əl/",
+        "meaning": "Dứa",
+        "image": "https://example.com/images/pineapple.jpg"
+    },
+    {
+        "id": 7,
+        "word": "Mango",
+        "pronunciation": "/ˈmæŋ.ɡoʊ/",
+        "meaning": "Xoài",
+        "image": "https://example.com/images/mango.jpg"
+    },
+    {
+        "id": 8,
+        "word": "Watermelon",
+        "pronunciation": "/ˈwɔː.tərˌmɛl.ən/",
+        "meaning": "Dưa hấu",
+        "image": "https://example.com/images/watermelon.jpg"
+    },
+    {
+        "id": 9,
+        "word": "Kiwi",
+        "pronunciation": "/ˈkiː.wiː/",
+        "meaning": "Kiwi",
+        "image": "https://example.com/images/kiwi.jpg"
+    },
+    {
+        "id": 10,
+        "word": "Peach",
+        "pronunciation": "/piːtʃ/",
+        "meaning": "Đào",
+        "image": "https://example.com/images/peach.jpg"
+    },
+    {
+        "id": 11,
+        "word": "Cherry",
+        "pronunciation": "/ˈtʃɛr.i/",
+        "meaning": "Anh đào",
+        "image": "https://example.com/images/cherry.jpg"
+    },
+    {
+        "id": 12,
+        "word": "Lemon",
+        "pronunciation": "/ˈlɛm.ən/",
+        "meaning": "Chanh",
+        "image": "https://example.com/images/lemon.jpg"
+    },
+    {
+        "id": 13,
+        "word": "Coconut",
+        "pronunciation": "/ˈkoʊ.kə.nʌt/",
+        "meaning": "Dừa",
+        "image": "https://example.com/images/coconut.jpg"
+    },
+    {
+        "id": 14,
+        "word": "Papaya",
+        "pronunciation": "/pəˈpaɪ.ə/",
+        "meaning": "Đu đủ",
+        "image": "https://example.com/images/papaya.jpg"
+    },
+    {
+        "id": 15,
+        "word": "Avocado",
+        "pronunciation": "/ˌæv.əˈkɑː.doʊ/",
+        "meaning": "Bơ",
+        "image": "https://example.com/images/avocado.jpg"
+    },
+    {
+        "id": 16,
+        "word": "Blueberry",
+        "pronunciation": "/ˈbluːˌbɛr.i/",
+        "meaning": "Việt quất",
+        "image": "https://example.com/images/blueberry.jpg"
+    },
+    {
+        "id": 17,
+        "word": "Raspberry",
+        "pronunciation": "/ˈræzˌbɛr.i/",
+        "meaning": "Mâm xôi",
+        "image": "https://example.com/images/raspberry.jpg"
+    },
+    {
+        "id": 18,
+        "word": "Blackberry",
+        "pronunciation": "/ˈblækˌbɛr.i/",
+        "meaning": "Mâm xôi đen",
+        "image": "https://example.com/images/blackberry.jpg"
+    },
+    {
+        "id": 19,
+        "word": "Fig",
+        "pronunciation": "/fɪɡ/",
+        "meaning": "Quả sung",
+        "image": "https://example.com/images/fig.jpg"
+    },
+    {
+        "id": 20,
+        "word": "Pomegranate",
+        "pronunciation": "/ˈpɒm.ɪˌɡræn.ɪt/",
+        "meaning": "Lựu",
+        "image": "https://example.com/images/pomegranate.jpg"
+    },
+    {
+        "id": 21,
+        "word": "Dragon Fruit",
+        "pronunciation": "/ˈdræɡ.ən fruːt/",
+        "meaning": "Thanh long",
+        "image": "https://example.com/images/dragon_fruit.jpg"
+    },
+    {
+        "id": 22,
+        "word": "Durian",
+        "pronunciation": "/ˈdʊr.i.ən/",
+        "meaning": "Sầu riêng",
+        "image": "https://example.com/images/durian.jpg"
+    },
+    {
+        "id": 23,
+        "word": "Jackfruit",
+        "pronunciation": "/ˈdʒæk.fruːt/",
+        "meaning": "Mít",
+        "image": "https://example.com/images/jackfruit.jpg"
+    },
+    {
+        "id": 24,
+        "word": "Starfruit",
+        "pronunciation": "/ˈstɑːr.fruːt/",
+        "meaning": "Khế",
+        "image": "https://example.com/images/starfruit.jpg"
+    },
+    {
+        "id": 25,
+        "word": "Tangerine",
+        "pronunciation": "/ˌtæn.dʒəˈriːn/",
+        "meaning": "Quýt",
+        "image": "https://example.com/images/tangerine.jpg"
+    },
+    {
+        "id": 26,
+        "word": "Cranberry",
+        "pronunciation": "/ˈkræn.bər.i/",
+        "meaning": "Quả nam việt quất",
+        "image": "https://example.com/images/cranberry.jpg"
+    },
+    {
+        "id": 27,
+        "word": "Gooseberry",
+        "pronunciation": "/ˈɡuːzˌbɛr.i/",
+        "meaning": "Quả lý gai",
+        "image": "https://example.com/images/gooseberry.jpg"
+    },
+    {
+        "id": 28,
+        "word": "Clementine",
+        "pronunciation": "/ˈklɛm.ən.taɪn/",
+        "meaning": "Quả quýt Clementine",
+        "image": "https://example.com/images/clementine.jpg"
+    },
+    {
+        "id": 29,
+        "word": "Persimmon",
+        "pronunciation": "/pərˈsɪm.ən/",
+        "meaning": "Quả hồng",
+        "image": "https://example.com/images/persimmon.jpg"
+    },
+    {
+        "id": 30,
+        "word": "Lychee",
+        "pronunciation": "/ˈliː.tʃiː/",
+        "meaning": "Quả vải",
+        "image": "https://example.com/images/lychee.jpg"
+    },
+    {
+        "id": 31,
+        "word": "Mulberry",
+        "pronunciation": "/ˈmʌlˌbɛr.i/",
+        "meaning": "Dâu tằm",
+        "image": "https://example.com/images/mulberry.jpg"
+    },
+    {
+        "id": 32,
+        "word": "Cantaloupe",
+        "pronunciation": "/ˈkæn.tə.loʊp/",
+        "meaning": "Dưa lưới",
+        "image": "https://example.com/images/cantaloupe.jpg"
+    },
+    {
+        "id": 33,
+        "word": "Honeydew",
+        "pronunciation": "/ˈhʌn.iˌduː/",
+        "meaning": "Dưa bở",
+        "image": "https://example.com/images/honeydew.jpg"
+    },
+    {
+        "id": 34,
+        "word": " Clementine",
+        "pronunciation": "/ˈklɛm.ən.taɪn/",
+        "meaning": "Quả quýt Clementine",
+        "image": "https://example.com/images/clementine.jpg"
+    },
+    {
+        "id": 35,
+        "word": "Soursop",
+        "pronunciation": "/ˈsaʊərˌsɒp/",
+        "meaning": "Mãng cầu xiêm",
+        "image": "https://example.com/images/soursop.jpg"
+    },
+    {
+        "id": 36,
+        "word": "Longan",
+        "pronunciation": "/ˈlɒŋ.ɡən/",
+        "meaning": "Nhãn",
+        "image": "https://example.com/images/longan.jpg"
+    },
+    {
+        "id": 37,
+        "word": "Salak",
+        "pronunciation": "/ˈsɑː.læk/",
+        "meaning": "Quả salak",
+        "image": "https://example.com/images/salak.jpg"
+    },
+    {
+        "id": 38,
+        "word": "Jujube",
+        "pronunciation": "/ˈdʒuː.dʒuːb/",
+        "meaning": "Quả táo tàu",
+        "image": "https://example.com/images/jujube.jpg"
+    },
+    {
+        "id": 39,
+        "word": "Rambutan",
+        "pronunciation": "/ræmˈbuː.tən/",
+        "meaning": "Chôm chôm",
+        "image": "https://example.com/images/rambutan.jpg"
+    },
+    {
+        "id": 40,
+        "word": "Breadfruit",
+        "pronunciation": "/ˈbrɛd.fruːt/",
+        "meaning": "Quả mít tố nữ",
+        "image": "https://example.com/images/breadfruit.jpg"
     }
 ]

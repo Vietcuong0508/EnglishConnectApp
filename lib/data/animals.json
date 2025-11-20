@@ -33,5 +33,320 @@
         "pronunciation": "/ˈtaɪɡər/",
         "meaning": "Hổ",
         "image": "https://example.com/images/tiger.jpg"
+    },
+    {
+        "id": 6,
+        "word": "Giraffe",
+        "pronunciation": "/dʒɪˈræf/",
+        "meaning": "Hươu cao cổ",
+        "image": "https://example.com/images/giraffe.jpg"
+    },
+    {
+        "id": 7,
+        "word": "Zebra",
+        "pronunciation": "/ˈziːbrə/",
+        "meaning": "Ngựa vằn",
+        "image": "https://example.com/images/zebra.jpg"
+    },
+    {
+        "id": 8,
+        "word": "Monkey",
+        "pronunciation": "/ˈmʌŋ.ki/",
+        "meaning": "Khỉ",
+        "image": "https://example.com/images/monkey.jpg"
+    },
+    {
+        "id": 9,
+        "word": "Panda",
+        "pronunciation": "/ˈpæn.də/",
+        "meaning": "Gấu trúc",
+        "image": "https://example.com/images/panda.jpg"
+    },
+    {
+        "id": 10,
+        "word": "Kangaroo",
+        "pronunciation": "/ˌkæŋ.ɡəˈruː/",
+        "meaning": "Chuột túi",
+        "image": "https://example.com/images/kangaroo.jpg"
+    },
+    {
+        "id": 11,
+        "word": "Bear",
+        "pronunciation": "/bɛər/",
+        "meaning": "Gấu",
+        "image": "https://example.com/images/bear.jpg"
+    },
+    {
+        "id": 12,
+        "word": "Wolf",
+        "pronunciation": "/wʊlf/",
+        "meaning": "Sói",
+        "image": "https://example.com/images/wolf.jpg"
+    },
+    {
+        "id": 13,
+        "word": "Fox",
+        "pronunciation": "/fɒks/",
+        "meaning": "Cáo",
+        "image": "https://example.com/images/fox.jpg"
+    },
+    {
+        "id": 14,
+        "word": "Deer",
+        "pronunciation": "/dɪər/",
+        "meaning": "Hươu",
+        "image": "https://example.com/images/deer.jpg"
+    },
+    {
+        "id": 15,
+        "word": "Rabbit",
+        "pronunciation": "/ˈræb.ɪt/",
+        "meaning": "Thỏ",
+        "image": "https://example.com/images/rabbit.jpg"
+    },
+    {
+        "id": 16,
+        "word": "Crocodile",
+        "pronunciation": "/ˈkrɒk.ə.daɪl/",
+        "meaning": "Cá sấu",
+        "image": "https://example.com/images/crocodile.jpg"
+    },
+    {
+        "id": 17,
+        "word": "Hippopotamus",
+        "pronunciation": "/ˌhɪp.əˈpɒt.ə.məs/",
+        "meaning": "Hà mã",
+        "image": "https://example.com/images/hippopotamus.jpg"
+    },
+    {
+        "id": 18,
+        "word": "Rhinoceros",
+        "pronunciation": "/raɪˈnɒs.ər.əs/",
+        "meaning": "Tê giác",
+        "image": "https://example.com/images/rhinoceros.jpg"
+    },
+    {
+        "id": 19,
+        "word": "Sloth",
+        "pronunciation": "/sloʊθ/",
+        "meaning": "Lười",
+        "image": "https://example.com/images/sloth.jpg"
+    },
+    {
+        "id": 20,
+        "word": "Otter",
+        "pronunciation": "/ˈɒt.ər/",
+        "meaning": "Rái cá",
+        "image": "https://example.com/images/otter.jpg"
+    },
+    {
+        "id": 21,
+        "word": "Peacock",
+        "pronunciation": "/ˈpiː.kɒk/",
+        "meaning": "Con công",
+        "image": "https://example.com/images/peacock.jpg"
+    },
+    {
+        "id": 22,
+        "word": "Flamingo",
+        "pronunciation": "/fləˈmɪŋ.ɡoʊ/",
+        "meaning": "Hồng hạc",
+        "image": "https://example.com/images/flamingo.jpg"
+    },
+    {
+        "id": 23,
+        "word": "Chameleon",
+        "pronunciation": "/kəˈmiː.li.ən/",
+        "meaning": "Tắc kè hoa",
+        "image": "https://example.com/images/chameleon.jpg"
+    },
+    {
+        "id": 24,
+        "word": "Armadillo",
+        "pronunciation": "/ˌɑːr.məˈdɪl.oʊ/",
+        "meaning": "Con giáp xác",
+        "image": "https://example.com/images/armadillo.jpg"
+    },
+    {
+        "id": 25,
+        "word": "Meerkat",
+        "pronunciation": "/ˈmɪər.kæt/",
+        "meaning": "Cầy meerkat",
+        "image": "https://example.com/images/meerkat.jpg"
+    },
+    {
+        "id": 26,
+        "word": "Wombat",
+        "pronunciation": "/ˈwɒm.bæt/",
+        "meaning": "Wombat",
+        "image": "https://example.com/images/wombat.jpg"
+    },
+    {
+        "id": 27,
+        "word": "Tasmanian Devil",
+        "pronunciation": "/tæzˈmeɪ.ni.ən ˈdɛv.əl/",
+        "meaning": "Quỷ Tasmania",
+        "image": "https://example.com/images/tasmanian_devil.jpg"
+    },
+    {
+        "id": 28,
+        "word": "Platypus",
+        "pronunciation": "/ˈplæt.ɪ.pəs/",
+        "meaning": "Thú mỏ vịt",
+        "image": "https://example.com/images/platypus.jpg"
+    },
+    {
+        "id": 29,
+        "word": "Echidna",
+        "pronunciation": "/ɪˈkɪd.nə/",
+        "meaning": "Echidna",
+        "image": "https://example.com/images/echidna.jpg"
+    },
+    {
+        "id": 30,
+        "word": "Quokka",
+        "pronunciation": "/ˈkwɒk.ə/",
+        "meaning": "Quokka",
+        "image": "https://example.com/images/quokka.jpg"
+    },
+    {
+        "id": 31,
+        "word": "Axolotl",
+        "pronunciation": "/ˈæks.əˌlɒt.əl/",
+        "meaning": "Cá ngựa Mexico",
+        "image": "https://example.com/images/axolotl.jpg"
+    },
+    {
+        "id": 32,
+        "word": "Narwhal",
+        "pronunciation": "/ˈnɑːr.wəl/",
+        "meaning": "Cá tê giác biển",
+        "image": "https://example.com/images/narwhal.jpg"
+    },
+    {
+        "id": 33,
+        "word": "Orangutan",
+        "pronunciation": "/ɔːˈræŋ.ə.tæn/",
+        "meaning": "Đười ươi",
+        "image": "https://example.com/images/orangutan.jpg"
+    },
+    {
+        "id": 34,
+        "word": "Baboon",
+        "pronunciation": "/bəˈbuːn/",
+        "meaning": "Khỉ baboon",
+        "image": "https://example.com/images/baboon.jpg"
+    },
+    {
+        "id": 35,
+        "word": "Capybara",
+        "pronunciation": "/ˌkæp.iˈbɑːr.ə/",
+        "meaning": "Chuột lang nước",
+        "image": "https://example.com/images/capybara.jpg"
+    },
+    {
+        "id": 36,
+        "word": "Lemur",
+        "pronunciation": "/ˈliː.mər/",
+        "meaning": "Vượn cáo",
+        "image": "https://example.com/images/lemur.jpg"
+    },
+    {
+        "id": 37,
+        "word": "Tarsier",
+        "pronunciation": "/ˈtɑːr.si.ər/",
+        "meaning": "Khỉ Tarsier",
+        "image": "https://example.com/images/tarsier.jpg"
+    },
+    {
+        "id": 38,
+        "word": "Ibex",
+        "pronunciation": "/ˈaɪ.bɛks/",
+        "meaning": "Dê núi Ibex",
+        "image": "https://example.com/images/ibex.jpg"
+    },
+    {
+        "id": 39,
+        "word": "Caracal",
+        "pronunciation": "/ˈkær.ə.kæl/",
+        "meaning": "Mèo rừng Caracal",
+        "image": "https://example.com/images/caracal.jpg"
+    },
+    {
+        "id": 40,
+        "word": "Serval",
+        "pronunciation": "/ˈsɜːr.vəl/",
+        "meaning": "Mèo rừng Serval",
+        "image": "https://example.com/images/serval.jpg"
+    },
+    {
+        "id": 41,
+        "word": "Aardvark",
+        "pronunciation": "/ˈɑːrd.vɑːrk/",
+        "meaning": "Con lợn đất",
+        "image": "https://example.com/images/aardvark.jpg"
+    },
+    {
+        "id": 42,
+        "word": "Okapi",
+        "pronunciation": "/oʊˈkɑː.pi/",
+        "meaning": "Okapi",
+        "image": "https://example.com/images/okapi.jpg"
+    },
+    {
+        "id": 43,
+        "word": "Fennec Fox",
+        "pronunciation": "/ˈfɛn.ɪk fɒks/",
+        "meaning": "Cáo Fennec",
+        "image": "https://example.com/images/fennec_fox.jpg"
+    },
+    {
+        "id": 44,
+        "word": "Markhor",
+        "pronunciation": "/ˈmɑːrk.hɔːr/",
+        "meaning": "Dê rừng Markhor",
+        "image": "https://example.com/images/markhor.jpg"
+    },
+    {
+        "id": 45,
+        "word": "Saola",
+        "pronunciation": "/saʊˈlɑː/",
+        "meaning": "Saola",
+        "image": "https://example.com/images/saola.jpg"
+    },
+    {
+        "id": 46,
+        "word": "Gerenuk",
+        "pronunciation": "/ˈɡɛr.ɪ.nʊk/",
+        "meaning": "Gerenuk",
+        "image": "https://example.com/images/gerenuk.jpg"
+    },
+    {
+        "id": 47,
+        "word": "Dhole",
+        "pronunciation": "/doʊl/",
+        "meaning": "Chó rừng Dhole",
+        "image": "https://example.com/images/dhole.jpg"
+    },
+    {
+        "id": 48,
+        "word": "Quoll",
+        "pronunciation": "/kwɒl/",
+        "meaning": "Quoll",
+        "image": "https://example.com/images/quoll.jpg"
+    },
+    {
+        "id": 49,
+        "word": "Numbat",
+        "pronunciation": "/ˈnʌm.bæt/",
+        "meaning": "Numbat",
+        "image": "https://example.com/images/numbat.jpg"
+    },
+    {
+        "id": 50,
+        "word": "Bilby",
+        "pronunciation": "/ˈbɪl.bi/",
+        "meaning": "Bilby",
+        "image": "https://example.com/images/bilby.jpg"
     }
 ]

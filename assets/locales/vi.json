@@ -1,5 +1,7 @@
 {
     "ok": "Được",
+    "done": "Xong",
+    "add": "Thêm",
     "cancel": "Hủy",
     "close": "Đóng",
     "app_name": "Kết nối tiếng Anh",
@@ -22,5 +24,15 @@
     "your_choice": "Lựa chọn của bạn",
     "connect_the_word": "Hãy nối từ",
     "suggest": "Gợi ý",
-    "pronounce": "Phát âm"
+    "pronounce": "Phát âm",
+    "add_topic": "Thêm chủ đề",
+    "add_new_topic": "Thêm chủ đề mới",
+    "topic_name": "Tên chủ đề",
+    "topic_description": "Mô tả chủ đề",
+    "add_vocabulary": "Thêm từ vựng",
+    "vocabulary": "Từ vựng",
+    "pronunciation": "Phát âm",
+    "meaning": "Nghĩa",
+    "please_enter_full_information": "Vui lòng nhập đầy đủ thông tin",
+    "add_vocabulary_success": "Thêm từ vựng thành công"
 }

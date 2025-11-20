@@ -13,7 +13,7 @@ final class HomeViewModel extends BaseViewModel {
     isLoading = true;
     notifyListeners();
 
-    selectedWords = await _wordService.getOneRandomWordFromEachFile();
+    selectedWords = await _wordService.getMixedWords();
 
     isLoading = false;
     notifyListeners();

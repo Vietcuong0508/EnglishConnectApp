@@ -33,5 +33,320 @@
         "pronunciation": "/ˈɑː.tɪst/",
         "meaning": "Nghệ sĩ",
         "image": "https://example.com/images/artist.jpg"
+    },
+    {
+        "id": 6,
+        "word": "Pilot",
+        "pronunciation": "/ˈpaɪ.lət/",
+        "meaning": "Phi công",
+        "image": "https://example.com/images/pilot.jpg"
+    },
+    {
+        "id": 7,
+        "word": "Nurse",
+        "pronunciation": "/nɜːrs/",
+        "meaning": "Y tá",
+        "image": "https://example.com/images/nurse.jpg"
+    },
+    {
+        "id": 8,
+        "word": "Firefighter",
+        "pronunciation": "/ˈfaɪərˌfaɪ.tər/",
+        "meaning": "Lính cứu hỏa",
+        "image": "https://example.com/images/firefighter.jpg"
+    },
+    {
+        "id": 9,
+        "word": "Police Officer",
+        "pronunciation": "/pəˈliːs ˈɒf.ɪ.sər/",
+        "meaning": "Cảnh sát",
+        "image": "https://example.com/images/police_officer.jpg"
+    },
+    {
+        "id": 10,
+        "word": "Farmer",
+        "pronunciation": "/ˈfɑːr.mər/",
+        "meaning": "Nông dân",
+        "image": "https://example.com/images/farmer.jpg"
+    },
+    {
+        "id": 11,
+        "word": "Mechanic",
+        "pronunciation": "/məˈkæn.ɪk/",
+        "meaning": "Thợ máy",
+        "image": "https://example.com/images/mechanic.jpg"
+    },
+    {
+        "id": 12,
+        "word": "Scientist",
+        "pronunciation": "/ˈsaɪən.tɪst/",
+        "meaning": "Nhà khoa học",
+        "image": "https://example.com/images/scientist.jpg"
+    },
+    {
+        "id": 13,
+        "word": "Dentist",
+        "pronunciation": "/ˈden.tɪst/",
+        "meaning": "Nha sĩ",
+        "image": "https://example.com/images/dentist.jpg"
+    },
+    {
+        "id": 14,
+        "word": "Architect",
+        "pronunciation": "/ˈɑːr.kɪ.tekt/",
+        "meaning": "Kiến trúc sư",
+        "image": "https://example.com/images/architect.jpg"
+    },
+    {
+        "id": 15,
+        "word": "Journalist",
+        "pronunciation": "/ˈdʒɜːr.nə.lɪst/",
+        "meaning": "Nhà báo",
+        "image": "https://example.com/images/journalist.jpg"
+    },
+    {
+        "id": 16,
+        "word": "Photographer",
+        "pronunciation": "/fəˈtɒɡ.rə.fər/",
+        "meaning": "Nhiếp ảnh gia",
+        "image": "https://example.com/images/photographer.jpg"
+    },
+    {
+        "id": 17,
+        "word": "Musician",
+        "pronunciation": "/mjuːˈzɪʃ.ən/",
+        "meaning": "Nhạc sĩ",
+        "image": "https://example.com/images/musician.jpg"
+    },
+    {
+        "id": 18,
+        "word": "Veterinarian",
+        "pronunciation": "/ˌvet.ər.ɪˈneə.ri.ən/",
+        "meaning": "Bác sĩ thú y",
+        "image": "https://example.com/images/veterinarian.jpg"
+    },
+    {
+        "id": 19,
+        "word": "Plumber",
+        "pronunciation": "/ˈplʌm.ər/",
+        "meaning": "Thợ sửa ống nước",
+        "image": "https://example.com/images/plumber.jpg"
+    },
+    {
+        "id": 20,
+        "word": "Electrician",
+        "pronunciation": "/ɪˌlekˈtrɪʃ.ən/",
+        "meaning": "Thợ điện",
+        "image": "https://example.com/images/electrician.jpg"
+    },
+    {
+        "id": 21,
+        "word": "Carpenter",
+        "pronunciation": "/ˈkɑːr.pən.tər/",
+        "meaning": "Thợ mộc",
+        "image": "https://example.com/images/carpenter.jpg"
+    },
+    {
+        "id": 22,
+        "word": "Pilot",
+        "pronunciation": "/ˈpaɪ.lət/",
+        "meaning": "Phi công",
+        "image": "https://example.com/images/pilot2.jpg"
+    },
+    {
+        "id": 23,
+        "word": "Chef",
+        "pronunciation": "/ʃef/",
+        "meaning": "Đầu bếp",
+        "image": "https://example.com/images/chef2.jpg"
+    },
+    {
+        "id": 24,
+        "word": "Judge",
+        "pronunciation": "/dʒʌdʒ/",
+        "meaning": "Thẩm phán",
+        "image": "https://example.com/images/judge.jpg"
+    },
+    {
+        "id": 25,
+        "word": "Librarian",
+        "pronunciation": "/laɪˈbreə.ri.ən/",
+        "meaning": "Thủ thư",
+        "image": "https://example.com/images/librarian.jpg"
+    },
+    {
+        "id": 26,
+        "word": "Translator",
+        "pronunciation": "/trænsˈleɪ.tər/",
+        "meaning": "Biên dịch viên",
+        "image": "https://example.com/images/translator.jpg"
+    },
+    {
+        "id": 27,
+        "word": "Surgeon",
+        "pronunciation": "/ˈsɜː.dʒən/",
+        "meaning": "Bác sĩ phẫu thuật",
+        "image": "https://example.com/images/surgeon.jpg"
+    },
+    {
+        "id": 28,
+        "word": "Therapist",
+        "pronunciation": "/ˈθer.ə.pɪst/",
+        "meaning": "Nhà trị liệu",
+        "image": "https://example.com/images/therapist.jpg"
+    },
+    {
+        "id": 29,
+        "word": "Economist",
+        "pronunciation": "/ɪˈkɒn.ə.mɪst/",
+        "meaning": "Nhà kinh tế học",
+        "image": "https://example.com/images/economist.jpg"
+    },
+    {
+        "id": 30,
+        "word": "Anthropologist",
+        "pronunciation": "/ˌæn.θrəˈpɒl.ə.dʒɪst/",
+        "meaning": "Nhà nhân chủng học",
+        "image": "https://example.com/images/anthropologist.jpg"
+    },
+    {
+        "id": 31,
+        "word": "Archaeologist",
+        "pronunciation": "/ˌɑːr.kiˈɒl.ə.dʒɪst/",
+        "meaning": "Nhà khảo cổ học",
+        "image": "https://example.com/images/archaeologist.jpg"
+    },
+    {
+        "id": 32,
+        "word": "Biologist",
+        "pronunciation": "/baɪˈɒl.ə.dʒɪst/",
+        "meaning": "Nhà sinh vật học",
+        "image": "https://example.com/images/biologist.jpg"
+    },
+    {
+        "id": 33,
+        "word": "Geologist",
+        "pronunciation": "/dʒiˈɒl.ə.dʒɪst/",
+        "meaning": "Nhà địa chất học",
+        "image": "https://example.com/images/geologist.jpg"
+    },
+    {
+        "id": 34,
+        "word": "Meteorologist",
+        "pronunciation": "/ˌmiː.ti.əˈrɒl.ə.dʒɪst/",
+        "meaning": "Nhà khí tượng học",
+        "image": "https://example.com/images/meteorologist.jpg"
+    },
+    {
+        "id": 35,
+        "word": "Zoologist",
+        "pronunciation": "/zuːˈɒl.ə.dʒɪst/",
+        "meaning": "Nhà động vật học",
+        "image": "https://example.com/images/zoologist.jpg"
+    },
+    {
+        "id": 36,
+        "word": "Oceanographer",
+        "pronunciation": "/ˌoʊ.ʃəˈnɒɡ.rə.fər/",
+        "meaning": "Nhà hải dương học",
+        "image": "https://example.com/images/oceanographer.jpg"
+    },
+    {
+        "id": 37,
+        "word": "Geneticist",
+        "pronunciation": "/dʒəˈnet.ɪ.sɪst/",
+        "meaning": "Nhà di truyền học",
+        "image": "https://example.com/images/geneticist.jpg"
+    },
+    {
+        "id": 38,
+        "word": "Immunologist",
+        "pronunciation": "/ˌɪm.jəˈnɒl.ə.dʒɪst/",
+        "meaning": "Nhà miễn dịch học",
+        "image": "https://example.com/images/immunologist.jpg"
+    },
+    {
+        "id": 39,
+        "word": "Pharmacist",
+        "pronunciation": "/ˈfɑːr.mə.sɪst/",
+        "meaning": "Dược sĩ",
+        "image": "https://example.com/images/pharmacist.jpg"
+    },
+    {
+        "id": 40,
+        "word": "Surveyor",
+        "pronunciation": "/sərˈveɪ.ər/",
+        "meaning": "Nhân viên khảo sát",
+        "image": "https://example.com/images/surveyor.jpg"
+    },
+    {
+        "id": 41,
+        "word": "Urban Planner",
+        "pronunciation": "/ˈɜːr.bən ˈplæn.ər/",
+        "meaning": "Nhà quy hoạch đô thị",
+        "image": "https://example.com/images/urban_planner.jpg"
+    },
+    {
+        "id": 42,
+        "word": "Wildlife Biologist",
+        "pronunciation": "/ˈwaɪld.laɪf baɪˈɒl.ə.dʒɪst/",
+        "meaning": "Nhà sinh vật học hoang dã",
+        "image": "https://example.com/images/wildlife_biologist.jpg"
+    },
+    {
+        "id": 43,
+        "word": "Food Scientist",
+        "pronunciation": "/fuːd ˈsaɪən.tɪst/",
+        "meaning": "Nhà khoa học thực phẩm",
+        "image": "https://example.com/images/food_scientist.jpg"
+    },
+    {
+        "id": 44,
+        "word": "Hydrologist",
+        "pronunciation": "/haɪˈdrɒl.ə.dʒɪst/",
+        "meaning": "Nhà thủy văn học",
+        "image": "https://example.com/images/hydrologist.jpg"
+    },
+    {
+        "id": 45,
+        "word": "Mycologist",
+        "pronunciation": "/maɪˈkɒl.ə.dʒɪst/",
+        "meaning": "Nhà nấm học",
+        "image": "https://example.com/images/mycologist.jpg"
+    },
+    {
+        "id": 46,
+        "word": "Toxicologist",
+        "pronunciation": "/ˌtɒk.sɪˈkɒl.ə.dʒɪst/",
+        "meaning": "Nhà độc chất học",
+        "image": "https://example.com/images/toxicologist.jpg"
+    },
+    {
+        "id": 47,
+        "word": "Entomologist",
+        "pronunciation": "/ˌen.təˈmɒl.ə.dʒɪst/",
+        "meaning": "Nhà côn trùng học",
+        "image": "https://example.com/images/entomologist.jpg"
+    },
+    {
+        "id": 48,
+        "word": "Paleontologist",
+        "pronunciation": "/ˌpæl.i.ənˈtɒl.ə.dʒɪst/",
+        "meaning": "Nhà cổ sinh vật học",
+        "image": "https://example.com/images/paleontologist.jpg"
+    },
+    {
+        "id": 49,
+        "word": "Climatologist",
+        "pronunciation": "/ˌklaɪ.məˈtɒl.ə.dʒɪst/",
+        "meaning": "Nhà khí hậu học",
+        "image": "https://example.com/images/climatologist.jpg"
+    },
+    {
+        "id": 50,
+        "word": "Seismologist",
+        "pronunciation": "/saɪzˈmɒl.ə.dʒɪst/",
+        "meaning": "Nhà địa chấn học",
+        "image": "https://example.com/images/seismologist.jpg"
     }
 ]

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:http/http.dart' as http; // Cần import http ở đây
 import 'package:path_provider/path_provider.dart';
 import 'package:english_connect/models/model.dart';
 import 'package:english_connect/ui/ui.dart';
@@ -9,6 +10,14 @@ import 'package:english_connect/ui/ui.dart';
 final class TopicViewModel extends BaseViewModel {
   List<TopicModel> defaultTopics = [];
   List<TopicModel> localTopics = [];
+
+  // Các biến trạng thái cho UI (nếu cần)
+  bool isTranslating = false;
+  String translatedText = "";
+
+  // URL API
+  final _translateBaseUrl = "https://api-e6gcmhxaeq-uc.a.run.app/translate";
+  final _dictionaryUrl = "api.dictionaryapi.dev";
 
   List<TopicModel> get topics {
     final Map<String, TopicModel> topicMap = {};
@@ -69,6 +78,17 @@ final class TopicViewModel extends BaseViewModel {
   }
 
   Future<TopicModel> addTopic(String name, String description) async {
+    final directory = await getApplicationDocumentsDirectory();
+    final file = File('${directory.path}/topics.json');
+
+    List<TopicModel> updatedLocalTopics = [];
+    if (await file.exists()) {
+      final localJson = await file.readAsString();
+      final List<dynamic> localList = jsonDecode(localJson);
+      updatedLocalTopics =
+          localList.map((json) => TopicModel.fromJson(json)).toList();
+    }
+
     final newTopic = TopicModel(
       id: DateTime.now().millisecondsSinceEpoch.toString(),
       name: name,
@@ -78,11 +98,14 @@ final class TopicViewModel extends BaseViewModel {
     );
     debugPrint('👉 Created topic with ID: ${newTopic.id}');
 
-    // Thêm vào localTopics
-    localTopics.add(newTopic);
+    updatedLocalTopics.add(newTopic);
 
-    // Ghi đè file local
-    await saveTopicsToFile();
+    final jsonString = jsonEncode(
+      updatedLocalTopics.map((e) => e.toJson()).toList(),
+    );
+    await file.writeAsString(jsonString);
+
+    localTopics = updatedLocalTopics;
 
     notifyListeners();
     return newTopic;
@@ -124,9 +147,66 @@ final class TopicViewModel extends BaseViewModel {
 
   Future<void> deleteTopic(String id) async {
     localTopics.removeWhere((topic) => topic.id == id);
-
     await saveTopicsToFile();
-
     notifyListeners();
+  }
+
+  // --- HÀM MỚI: Lấy bản dịch (Trả về String?, không notify toàn app) ---
+  Future<String?> fetchTranslation(String text) async {
+    if (text.trim().isEmpty) return null;
+
+    try {
+      final url = Uri.parse(
+        "$_translateBaseUrl?q=${Uri.encodeComponent(text)}",
+      );
+      final res = await http.get(url).timeout(const Duration(seconds: 10));
+
+      if (res.statusCode == 200) {
+        final data = jsonDecode(res.body);
+        return (data["result"] as String?)?.trim();
+      }
+    } catch (e) {
+      debugPrint('❌ Translate Error: $e');
+    }
+    return null;
+  }
+
+  // --- HÀM MỚI: Lấy phiên âm (Trả về String?) ---
+  Future<String?> fetchPronunciation(String word) async {
+    final w = word.trim();
+    if (w.isEmpty) return null;
+
+    try {
+      final uri = Uri.https(
+        _dictionaryUrl,
+        '/api/v2/entries/en/${Uri.encodeComponent(w)}',
+      );
+      final res = await http.get(uri).timeout(const Duration(seconds: 5));
+
+      if (res.statusCode != 200) return null;
+
+      final List data = jsonDecode(res.body) as List;
+      if (data.isEmpty) return null;
+
+      final entry = data.first as Map<String, dynamic>;
+
+      // Ưu tiên lấy text trong mảng phonetics
+      if (entry['phonetics'] != null && entry['phonetics'] is List) {
+        for (var p in (entry['phonetics'] as List)) {
+          if (p is Map &&
+              p['text'] != null &&
+              (p['text'] as String).trim().isNotEmpty) {
+            return (p['text'] as String).trim();
+          }
+        }
+      }
+      // Fallback
+      if (entry['phonetic'] != null) {
+        return (entry['phonetic'] as String).trim();
+      }
+    } catch (_) {
+      return null;
+    }
+    return null;
   }
 }

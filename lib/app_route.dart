@@ -23,10 +23,8 @@ class AppRouter {
         return CupertinoPageRoute(builder: (_) => const HomeScreen());
       case RouteNames.gameView:
         final String? topicName = arguments['topicName'];
-        final List<WordModel>? randomWord = arguments['randomWord'];
         return CupertinoPageRoute(
-          builder:
-              (_) => GameScreen(topicName: topicName, randomWord: randomWord),
+          builder: (_) => GameScreen(topicName: topicName),
         );
       case RouteNames.settingsView:
         return CupertinoPageRoute(builder: (_) => const SettingsScreen());

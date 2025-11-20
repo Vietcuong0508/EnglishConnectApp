@@ -33,5 +33,313 @@
         "pronunciation": "/tɔɪˈoʊ.tə/",
         "meaning": "Toyota",
         "image": "https://example.com/images/toyota.jpg"
+    },
+    {
+        "id": 6,
+        "word": "BMW",
+        "pronunciation": "/biː ɛm ˈdʌb.əl.juː/",
+        "meaning": "BMW",
+        "image": "https://example.com/images/bmw.jpg"
+    },
+    {
+        "id": 7,
+        "word": "Audi",
+        "pronunciation": "/ˈaʊ.di/",
+        "meaning": "Audi",
+        "image": "https://example.com/images/audi.jpg"
+    },
+    {
+        "id": 8,
+        "word": "Mercedes-Benz",
+        "pronunciation": "/mɜːrˈseɪ.diːz bɛnz/",
+        "meaning": "Mercedes-Benz",
+        "image": "https://example.com/images/mercedes_benz.jpg"
+    },
+    {
+        "id": 9,
+        "word": "Chevrolet",
+        "pronunciation": "/ˌʃɛv.rəˈleɪ/",
+        "meaning": "Chevrolet",
+        "image": "https://example.com/images/chevrolet.jpg"
+    },
+    {
+        "id": 10,
+        "word": "Nissan",
+        "pronunciation": "/ˈnɪs.ɑːn/",
+        "meaning": "Nissan",
+        "image": "https://example.com/images/nissan.jpg"
+    },
+    {
+        "id": 11,
+        "word": "Volkswagen",
+        "pronunciation": "/ˈvoʊksˌwɑː.ɡən/",
+        "meaning": "Volkswagen",
+        "image": "https://example.com/images/volkswagen.jpg"
+    },
+    {
+        "id": 12,
+        "word": "Hyundai",
+        "pronunciation": "/ˈhʌn.daɪ/",
+        "meaning": "Hyundai",
+        "image": "https://example.com/images/hyundai.jpg"
+    },
+    {
+        "id": 13,
+        "word": "Kia",
+        "pronunciation": "/ˈkiː.ə/",
+        "meaning": "Kia",
+        "image": "https://example.com/images/kia.jpg"
+    },
+    {
+        "id": 14,
+        "word": "Mazda",
+        "pronunciation": "/ˈmɑːz.də/",
+        "meaning": "Mazda",
+        "image": "https://example.com/images/mazda.jpg"
+    },
+    {
+        "id": 15,
+        "word": "Subaru",
+        "pronunciation": "/suːˈbɑː.ruː/",
+        "meaning": "Subaru",
+        "image": "https://example.com/images/subaru.jpg"
+    },
+    {
+        "id": 16,
+        "word": "Jaguar",
+        "pronunciation": "/ˈdʒæɡ.ju.ər/",
+        "meaning": "Jaguar",
+        "image": "https://example.com/images/jaguar.jpg"
+    },
+    {
+        "id": 17,
+        "word": "Land Rover",
+        "pronunciation": "/lænd ˈroʊ.vər/",
+        "meaning": "Land Rover",
+        "image": "https://example.com/images/land_rover.jpg"
+    },
+    {
+        "id": 18,
+        "word": "Porsche",
+        "pronunciation": "/ˈpɔːrʃə/",
+        "meaning": "Porsche",
+        "image": "https://example.com/images/porsche.jpg"
+    },
+    {
+        "id": 19,
+        "word": "Rolls-Royce",
+        "pronunciation": "/roʊlz rɔɪs/",
+        "meaning": "Rolls-Royce",
+        "image": "https://example.com/images/rolls_royce.jpg"
+    },
+    {
+        "id": 20,
+        "word": "Bentley",
+        "pronunciation": "/ˈbɛn(t)li/",
+        "meaning": "Bentley",
+        "image": "https://example.com/images/bentley.jpg"
+    },
+    {
+        "id": 21,
+        "word": "McLaren",
+        "pronunciation": "/məkˈlɑːrən/",
+        "meaning": "McLaren",
+        "image": "https://example.com/images/mclaren.jpg"
+    },
+    {
+        "id": 22,
+        "word": "Aston Martin",
+        "pronunciation": "/ˈæstən ˈmɑːrtɪn/",
+        "meaning": "Aston Martin",
+        "image": "https://example.com/images/aston_martin.jpg"
+    },
+    {
+        "id": 23,
+        "word": "Cadillac",
+        "pronunciation": "/ˈkædɪlæk/",
+        "meaning": "Cadillac",
+        "image": "https://example.com/images/cadillac.jpg"
+    },
+    {
+        "id": 24,
+        "word": "Lincoln",
+        "pronunciation": "/ˈlɪŋkən/",
+        "meaning": "Lincoln",
+        "image": "https://example.com/images/lincoln.jpg"
+    },
+    {
+        "id": 25,
+        "word": "Infiniti",
+        "pronunciation": "/ɪnˈfɪnɪti/",
+        "meaning": "Infiniti",
+        "image": "https://example.com/images/infiniti.jpg"
+    },
+    {
+        "id": 26,
+        "word": "Acura",
+        "pronunciation": "/əˈkjʊərə/",
+        "meaning": "Acura",
+        "image": "https://example.com/images/acura.jpg"
+    },
+    {
+        "id": 27,
+        "word": "Genesis",
+        "pronunciation": "/ˈdʒɛnəsɪs/",
+        "meaning": "Genesis",
+        "image": "https://example.com/images/genesis.jpg"
+    },
+    {
+        "id": 28,
+        "word": "Mini",
+        "pronunciation": "/ˈmɪni/",
+        "meaning": "Mini",
+        "image": "https://example.com/images/mini.jpg"
+    },
+    {
+        "id": 29,
+        "word": "Fiat",
+        "pronunciation": "/ˈfiːæt/",
+        "meaning": "Fiat",
+        "image": "https://example.com/images/fiat.jpg"
+    },
+    {
+        "id": 30,
+        "word": "Alfa Romeo",
+        "pronunciation": "/ˈælfə roʊˈmeɪoʊ/",
+        "meaning": "Alfa Romeo",
+        "image": "https://example.com/images/alfa_romeo.jpg"
+    },
+    {
+        "id": 31,
+        "word": "Suzuki",
+        "pronunciation": "/suˈzuːki/",
+        "meaning": "Suzuki",
+        "image": "https://example.com/images/suzuki.jpg"
+    },
+    {
+        "id": 32,
+        "word": "Mitsubishi",
+        "pronunciation": "/ˌmɪtsuˈbiːʃi/",
+        "meaning": "Mitsubishi",
+        "image": "https://example.com/images/mitsubishi.jpg"
+    },
+    {
+        "id": 33,
+        "word": "Chrysler",
+        "pronunciation": "/ˈkraɪslər/",
+        "meaning": "Chrysler",
+        "image": "https://example.com/images/chrysler.jpg"
+    },
+    {
+        "id": 34,
+        "word": "Dodge",
+        "pronunciation": "/dɑːdʒ/",
+        "meaning": "Dodge",
+        "image": "https://example.com/images/dodge.jpg"
+    },
+    {
+        "id": 35,
+        "word": "Jeep",
+        "pronunciation": "/dʒiːp/",
+        "meaning": "Jeep",
+        "image": "https://example.com/images/jeep.jpg"
+    },
+    {
+        "id": 36,
+        "word": "Ram",
+        "pronunciation": "/ræm/",
+        "meaning": "Ram",
+        "image": "https://example.com/images/ram.jpg"
+    },
+    {
+        "id": 38,
+        "word": "Rivian",
+        "pronunciation": "/ˈrɪviən/",
+        "meaning": "Rivian",
+        "image": "https://example.com/images/rivian.jpg"
+    },
+    {
+        "id": 39,
+        "word": "Lucid Motors",
+        "pronunciation": "/ˈluːsɪd ˈmoʊtərz/",
+        "meaning": "Lucid Motors",
+        "image": "https://example.com/images/lucid_motors.jpg"
+    },
+    {
+        "id": 40,
+        "word": "NIO",
+        "pronunciation": "/niː.oʊ/",
+        "meaning": "NIO",
+        "image": "https://example.com/images/nio.jpg"
+    },
+    {
+        "id": 41,
+        "word": "BYD",
+        "pronunciation": "/biː waɪ diː/",
+        "meaning": "BYD",
+        "image": "https://example.com/images/byd.jpg"
+    },
+    {
+        "id": 42,
+        "word": "Great Wall Motors",
+        "pronunciation": "/ɡreɪt wɔːl ˈmoʊtərz/",
+        "meaning": "Great Wall Motors",
+        "image": "https://example.com/images/great_wall_motors.jpg"
+    },
+    {
+        "id": 43,
+        "word": "Tata Motors",
+        "pronunciation": "/ˈtɑːtə ˈmoʊtərz/",
+        "meaning": "Tata Motors",
+        "image": "https://example.com/images/tata_motors.jpg"
+    },
+    {
+        "id": 44,
+        "word": "Mahindra",
+        "pronunciation": "/məˈhɪndrə/",
+        "meaning": "Mahindra",
+        "image": "https://example.com/images/mahindra.jpg"
+    },
+    {
+        "id": 45,
+        "word": "Proton",
+        "pronunciation": "/ˈproʊtɒn/",
+        "meaning": "Proton",
+        "image": "https://example.com/images/proton.jpg"
+    },
+    {
+        "id": 46,
+        "word": "Perodua",
+        "pronunciation": "/ˌpɛrəˈduːə/",
+        "meaning": "Perodua",
+        "image": "https://example.com/images/perodua.jpg"
+    },
+    {
+        "id": 47,
+        "word": "Saab",
+        "pronunciation": "/sɑːb/",
+        "meaning": "Saab",
+        "image": "https://example.com/images/saab.jpg"
+    },
+    {
+        "id": 48,
+        "word": "Hummer",
+        "pronunciation": "/ˈhʌmər/",
+        "meaning": "Hummer",
+        "image": "https://example.com/images/hummer.jpg"
+    },
+    {
+        "id": 49,
+        "word": "Isuzu",
+        "pronunciation": "/ɪˈsuːzuː/",
+        "meaning": "Isuzu",
+        "image": "https://example.com/images/isuzu.jpg"
+    },
+    {
+        "id": 50,
+        "word": "Daihatsu",
+        "pronunciation": "/daɪˈhɑːtsuː/",
+        "meaning": "Daihatsu",
+        "image": "https://example.com/images/daihatsu.jpg"
     }
 ]

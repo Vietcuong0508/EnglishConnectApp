@@ -1,5 +1,7 @@
 {
     "ok": "Ok",
+    "done": "Done",
+    "add": "Add",
     "cancel": "Cancel",
     "close": "Close",
     "app_name": "English Connect",
@@ -22,5 +24,15 @@
     "your_choice": "Your choice",
     "connect_the_word": "Connect the word",
     "suggest": "Suggest",
-    "pronounce": "Pronounce"
+    "pronounce": "Pronounce",
+    "add_topic": "Add Topic",
+    "add_new_topic": "Add New Topic",
+    "topic_name": "Topic Name",
+    "topic_description": "Topic Description",
+    "add_vocabulary": "Add Vocabulary",
+    "vocabulary": "Vocabulary",
+    "pronunciation": "Pronunciation",
+    "meaning": "Meaning",
+    "please_enter_full_information": "Please enter full information",
+    "add_vocabulary_success": "Add vocabulary success"
 }

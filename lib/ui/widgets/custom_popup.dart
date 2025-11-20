@@ -101,7 +101,7 @@ class CustomPopup extends StatelessWidget {
         ],
       ),
       actions: [
-        if (currentLevel < totalLevels - 1 && textBtnleft != null)
+        if (currentLevel < totalLevels && textBtnleft != null)
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: theme.buttonColor,
